@@ -126,4 +126,93 @@ describe("assess", () => {
     expect(card.conditions.some((line) => line.includes("米"))).toBe(false);
     expect(card.missing.some((line) => line.includes("弹道"))).toBe(true);
   });
+
+  it("names the sorted held weapon during an ion storm when it cannot penetrate", () => {
+    const shell: Enemy = {
+      ...charger,
+      parts: [
+        { id: "head", name: "头", armor: 6, health: 600, durability: 0, fatal: true, breakable: false },
+      ],
+    };
+    const weak: GearPiece = {
+      ...rifle,
+      attacks: [{ ...rifle.attacks[0], ap: { front: 2 } }],
+    };
+    const card = assess(shell, [strike, weak], { weather: ["ion-storms"], gloom: "none" });
+    expect(card.method).toContain("步枪");
+    expect(card.method).not.toContain("轨道打击");
+    expect(card.method).not.toContain("大约");
+    expect(card.method).not.toContain("风暴间歇才能呼叫");
+    expect(card.conditions.some((line) => line.includes("外圈"))).toBe(false);
+    expect(card.gear.map((item) => item.name)).toEqual(["轨道打击"]);
+
+    const blocked = assess(shell, [weak], { weather: ["ion-storms"], gloom: "none" });
+    expect(blocked.method).toContain("步枪");
+    expect(blocked.method).not.toContain("火焰");
+    expect(blocked.gear).toEqual([]);
+  });
+
+  it("writes a 2/3 heat factor in extreme cold without inventing seconds", () => {
+    const laser: GearPiece = {
+      ...rifle,
+      id: "laser",
+      name: "激光枪",
+      attacks: [{ ...rifle.attacks[0], heat: true }],
+    };
+    const card = assess(charger, [laser], { weather: ["extreme-cold"], gloom: "none" });
+    expect(card.environment.some((line) => line.includes("2/3"))).toBe(true);
+    expect(card.environment.some((line) => line.includes("90%"))).toBe(true);
+    expect(card.environment.some((line) => line.includes("秒"))).toBe(false);
+    expect(card.gear[0]?.reason).toContain("1.1");
+  });
+
+  it("writes the shortened heat cooldown when extreme cold has a base time", () => {
+    const laser: GearPiece = {
+      ...rifle,
+      id: "laser",
+      name: "激光枪",
+      attacks: [{ ...rifle.attacks[0], heat: true, cooldownSeconds: 3 }],
+    };
+    const card = assess(charger, [laser], { weather: ["extreme-cold"], gloom: "none" });
+    expect(card.environment.some((line) => line.includes("2/3"))).toBe(true);
+    expect(card.environment.some((line) => line.includes("2 秒"))).toBe(true);
+    expect(card.environment.some((line) => line.includes("90%"))).toBe(true);
+    expect(card.gear[0]?.reason).toContain("1.1");
+  });
+
+  it("omits the outer-radius line when the explosion has no radius", () => {
+    const shell: Enemy = {
+      ...charger,
+      parts: [
+        { id: "head", name: "头", armor: 5, health: 100, durability: 0, fatal: true, breakable: false },
+      ],
+    };
+    const bomb: GearPiece = {
+      ...strike,
+      attacks: [{
+        ...strike.attacks[0],
+        ap: { front: 6 },
+        standardDamage: 100,
+        durableDamage: 100,
+        explosion: undefined,
+      }],
+    };
+    const card = assess(shell, [bomb], calm);
+    expect(card.conditions.some((line) => line.includes("外圈"))).toBe(false);
+    expect(card.missing.some((line) => line.includes("半径"))).toBe(true);
+  });
+
+  it("does not publish a plate-only count when the inner part has no health", () => {
+    const plated: Enemy = {
+      ...charger,
+      parts: [
+        { id: "leg", name: "腿甲", armor: 4, health: 400, durability: 0, fatal: false, breakable: true, behindId: "flesh" },
+        { id: "flesh", name: "腿肉", armor: 1, fatal: true, breakable: false },
+      ],
+    };
+    const card = assess(plated, [rifle], calm);
+    expect(card.method).not.toContain("大约");
+    expect(card.gear.every((item) => !item.reason.includes("大约"))).toBe(true);
+    expect(card.gear[0]?.shots).toBeUndefined();
+  });
 });

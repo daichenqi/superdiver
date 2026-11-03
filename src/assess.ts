@@ -137,10 +137,10 @@ function aimedVerdict(
   if (part.breakable) {
     const inner = shotDamage(attack, behind, ctx);
     const outerShots = ceilShots(part.health, shot.damage);
-    const innerShots = inner.penetrates ? ceilShots(behind.health, inner.damage) : undefined;
+    const innerShots = ceilShots(behind.health, inner.damage);
     const innerHits = inner.penetrates && inner.damage > 0;
     const shots =
-      outerShots !== undefined && innerHits && innerShots !== undefined ? outerShots + innerShots : outerShots;
+      outerShots !== undefined && innerShots !== undefined ? outerShots + innerShots : undefined;
     return {
       penetrates: true,
       shots,
@@ -284,8 +284,8 @@ function listConditions(
     const next = at({ ...ctx, acid: false });
     if (changed(verdict, next)) lines.push(conditionLine("酸雨结束", next));
   }
-  if (attack.kind === "explosion") {
-    const distanceM = attack.explosion ? (attack.explosion.innerRadius + attack.explosion.outerRadius) / 2 : 0;
+  if (attack.kind === "explosion" && attack.explosion) {
+    const distanceM = (attack.explosion.innerRadius + attack.explosion.outerRadius) / 2;
     const next = at({ ...ctx, zone: "outer", distanceM });
     if (verdict.penetrates !== next.penetrates || verdict.shots !== next.shots) {
       lines.push(conditionLine("外圈", next));
@@ -395,11 +395,30 @@ function listWeakPoints(enemy: Enemy, acid: boolean): KillCard["weakPoints"] {
     });
 }
 
+function formatColdSeconds(seconds: number): string {
+  const value = (seconds * 2) / 3;
+  const rounded = Math.round((value + Number.EPSILON) * 10) / 10;
+  return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
+}
+
+function coldLine(gear: GearPiece[]): string {
+  const heat = gear.flatMap((piece) => piece.attacks).filter((attack) => attack.heat);
+  const line = "严寒：射速按 90%";
+  if (heat.length === 0) return line;
+  const known = [...new Set(
+    heat.flatMap((attack) => (
+      attack.cooldownSeconds === undefined ? [] : [formatColdSeconds(attack.cooldownSeconds)]
+    )),
+  )];
+  if (known.length === 0) return `${line}，热量冷却变为 2/3`;
+  return `${line}，热量冷却变为 2/3，${known.join("、")} 秒`;
+}
+
 function listEnvironment(situation: Situation, gear: GearPiece[]): string[] {
   const weather = new Set(situation.weather);
   const lines: string[] = [];
   if (weather.has("acid-storms")) lines.push("酸雨：护甲减 1");
-  if (weather.has("extreme-cold")) lines.push("严寒：射速按 90%");
+  if (weather.has("extreme-cold")) lines.push(coldLine(gear));
   if (weather.has("intense-heat") || weather.has("fire-tornados")) lines.push("热量冷却变为 4/3");
   if (weather.has("fire-tornados")) lines.push("火焰龙卷：敌人视野下降");
   if (weather.has("ion-storms")) lines.push("离子风暴：不能新呼叫战略");
@@ -463,7 +482,7 @@ export function assess(
   const blockedCount = rated.filter((row) => !row.verdict.penetrates).length;
   const damageTypes = listDamage(enemy);
   const weakPoints = listWeakPoints(enemy, acid);
-  const lead = shown[0];
+  const lead = rated[0];
 
   return {
     method: lead ? methodFrom(lead, ion) : openMethod(enemy, weakPoints, damageTypes),
