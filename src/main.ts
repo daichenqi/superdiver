@@ -545,6 +545,7 @@ function currentSituation(): Situation {
 }
 
 function addLines(parent: HTMLElement, title: string, lines: string[]): void {
+  if (lines.length === 0) return;
   const heading = document.createElement("h3");
   heading.textContent = title;
   const list = document.createElement("ul");
@@ -554,6 +555,42 @@ function addLines(parent: HTMLElement, title: string, lines: string[]): void {
     list.append(item);
   }
   parent.append(heading, list);
+}
+
+function addText(parent: HTMLElement, title: string, text: string): void {
+  const heading = document.createElement("h3");
+  heading.textContent = title;
+  const paragraph = document.createElement("p");
+  paragraph.textContent = text;
+  parent.append(heading, paragraph);
+}
+
+function addParagraph(parent: HTMLElement, text: string): void {
+  const paragraph = document.createElement("p");
+  paragraph.textContent = text;
+  parent.append(paragraph);
+}
+
+function basisDetails(result: KillCard): HTMLDetailsElement | null {
+  const details = document.createElement("details");
+  const summary = document.createElement("summary");
+  summary.textContent = "依据";
+  details.append(summary);
+  for (const rule of result.rules) addParagraph(details, rule);
+  addLines(details, "缺失", result.missing);
+  addLines(details, "冲突", result.conflicts);
+  if (result.wikiUrl) {
+    const wiki = document.createElement("p");
+    const link = document.createElement("a");
+    link.href = result.wikiUrl;
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    link.textContent = result.wikiUrl;
+    wiki.append(link);
+    details.append(wiki);
+  }
+  if (result.importedAt) addParagraph(details, result.importedAt);
+  return details.childElementCount > 1 ? details : null;
 }
 
 function formatWeak(point: KillCard["weakPoints"][number]): string {
@@ -581,41 +618,20 @@ function renderCard(): void {
     importedAt: meta.importedAt,
     conflicts: meta.conflicts,
   });
-  const heading = document.createElement("h2");
-  heading.textContent = result.method;
-  const details = document.createElement("details");
-  const summary = document.createElement("summary");
-  summary.textContent = "依据";
-  const reasons = document.createElement("ul");
-  for (const line of result.conditions) {
-    const item = document.createElement("li");
-    item.textContent = line;
-    reasons.append(item);
+  addText(card, "打法", result.method);
+  if (result.conditions.length > 0) addLines(card, "条件", result.conditions);
+  if (result.environment.length > 0) addLines(card, "环境", result.environment);
+  if (result.damageTypes.length > 0) {
+    addLines(card, "伤害类型", result.damageTypes.map((item) => `${DAMAGE_WORD[item.type]}：${item.label}`));
   }
-  details.append(summary, reasons);
-  card.append(heading, details);
-  addLines(card, "环境", result.environment);
-  addLines(card, "伤害类型", result.damageTypes.map((item) => `${DAMAGE_WORD[item.type]}：${item.label}`));
-  addLines(card, "弱点", result.weakPoints.map(formatWeak));
-  addLines(card, "装备", result.gear.map(formatGear));
-  if (result.blockedCount > 0) {
-    const blocked = document.createElement("p");
-    blocked.textContent = `打不穿：${result.blockedCount}`;
-    card.append(blocked);
+  if (result.weakPoints.length > 0) addLines(card, "弱点", result.weakPoints.map(formatWeak));
+  else if (enemy.parts.length === 0) addText(card, "弱点", "部位暂缺");
+  if (result.gear.length > 0) {
+    addLines(card, "你的装备", result.gear.map(formatGear));
+    if (result.blockedCount > 0) addParagraph(card, `打不穿：${result.blockedCount}`);
+  } else if (result.blockedCount > 0) {
+    addParagraph(card, `打不穿：${result.blockedCount}`);
   }
-  addLines(card, "缺失", result.missing);
-  addLines(card, "冲突", result.conflicts);
-  const wiki = document.createElement("p");
-  if (result.wikiUrl) {
-    const link = document.createElement("a");
-    link.href = result.wikiUrl;
-    link.target = "_blank";
-    link.rel = "noreferrer";
-    link.textContent = result.wikiUrl;
-    wiki.append(link);
-  }
-  card.append(wiki);
-  const imported = document.createElement("p");
-  imported.textContent = result.importedAt ?? "";
-  card.append(imported);
+  const details = basisDetails(result);
+  if (details) card.append(details);
 }

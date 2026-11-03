@@ -11,6 +11,7 @@ export interface KillCard {
   gear: { name: string; component: string; target?: string; reason: string; shots?: number }[];
   blockedCount: number;
   missing: string[];
+  rules: string[];
   conflicts: string[];
   wikiUrl?: string;
   importedAt?: string;
@@ -89,6 +90,7 @@ function aimedVerdict(
   missing: string[],
   recordMissing: boolean,
 ): Verdict {
+  if (recordMissing && part.durability === undefined) pushUnique(missing, `缺少耐久：${part.name}`);
   const shot = shotDamage(attack, part, ctx);
   const plain: Verdict = {
     penetrates: shot.penetrates,
@@ -112,6 +114,7 @@ function aimedVerdict(
   const reduced = cleaveThrough(shot.armorUsed, part.durability, shot.apUsed);
   const plating = sameShotThroughPlating(shot.armorUsed, part.durability, shot.apUsed);
   if (plating || (!part.breakable && reduced !== null)) {
+    if (recordMissing && behind.durability === undefined) pushUnique(missing, `缺少耐久：${behind.name}`);
     const next = shotDamage(attackAtAp(attack, reduced ?? 0), behind, ctx);
     const behindKill = behind.fatal && next.penetrates;
     const frontShots = ceilShots(part.health, shot.damage);
@@ -135,6 +138,7 @@ function aimedVerdict(
   }
 
   if (part.breakable) {
+    if (recordMissing && behind.durability === undefined) pushUnique(missing, `缺少耐久：${behind.name}`);
     const inner = shotDamage(attack, behind, ctx);
     const outerShots = ceilShots(part.health, shot.damage);
     const innerShots = ceilShots(behind.health, inner.damage);
@@ -173,9 +177,16 @@ function bestAimed(
   return best;
 }
 
-function explosionVerdict(attack: AttackProfile, parts: Part[], ctx: ShotContext): Verdict {
+function explosionVerdict(
+  attack: AttackProfile,
+  parts: Part[],
+  ctx: ShotContext,
+  missing: string[] = [],
+  recordMissing = false,
+): Verdict {
   if (parts.length === 0) return emptyVerdict();
   const rows = parts.map((part) => {
+    if (recordMissing && part.durability === undefined) pushUnique(missing, `缺少耐久：${part.name}`);
     const shot = shotDamage(attack, part, ctx);
     return {
       part,
@@ -227,7 +238,7 @@ function rateAttack(
   missing: string[],
   recordMissing: boolean,
 ): Verdict {
-  if (attack.kind === "explosion") return explosionVerdict(attack, enemy.parts, ctx);
+  if (attack.kind === "explosion") return explosionVerdict(attack, enemy.parts, ctx, missing, recordMissing);
   return bestAimed(attack, enemy.parts, ctx, byId, missing, recordMissing);
 }
 
@@ -340,11 +351,20 @@ function gearItem(rated: Rated, situation: Situation): KillCard["gear"][number] 
 }
 
 function methodFrom(rated: Rated, ion: boolean): string {
+  const call = ion && rated.piece.requiresCall ? "，风暴间歇才能呼叫" : "";
+  if (!rated.verdict.penetrates) return `${rated.piece.name}的${rated.attack.label}打不穿${call}。`;
   let text = `用${rated.piece.name}的${rated.attack.label}`;
   if (rated.attack.kind !== "explosion" && rated.verdict.target) text += `打${rated.verdict.target}`;
   if (rated.verdict.shots !== undefined) text += `，大约 ${rated.verdict.shots} 发`;
-  if (ion && rated.piece.requiresCall) text += `，风暴间歇才能呼叫`;
-  return text;
+  return text + call;
+}
+
+function listRules(lead: Rated | undefined, shown: Rated[], missing: string[]): string[] {
+  const rules: string[] = [];
+  const projectile = lead?.attack.kind === "projectile" || shown.some((row) => row.attack.kind === "projectile");
+  if (projectile) rules.push("投射物距离衰减用的是简化公式，和游戏内模拟大约差 2%–4%。");
+  if (missing.some((line) => line.includes("耐久"))) rules.push("耐久缺失时只用标准伤害。");
+  return rules;
 }
 
 function openMethod(enemy: Enemy, weakPoints: KillCard["weakPoints"], damageTypes: KillCard["damageTypes"]): string {
@@ -497,6 +517,7 @@ export function assess(
     gear: shown.map((row) => gearItem(row, situation)),
     blockedCount,
     missing,
+    rules: listRules(lead, shown, missing),
     conflicts: meta?.conflicts ?? [],
     wikiUrl: enemy.wikiUrl,
     importedAt: meta?.importedAt,

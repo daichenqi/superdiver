@@ -218,6 +218,61 @@ describe("assess", () => {
     expect(card.missing.some((line) => line.includes("半径"))).toBe(true);
   });
 
+  it("says a rifle cannot penetrate any part", () => {
+    const shell: Enemy = {
+      ...charger,
+      parts: [
+        { id: "head", name: "头", armor: 6, health: 600, durability: 0, fatal: true, breakable: false },
+      ],
+    };
+    const weak: GearPiece = {
+      ...rifle,
+      attacks: [{ ...rifle.attacks[0], ap: { front: 2 } }],
+    };
+    const card = assess(shell, [weak], calm);
+    expect(card.method).toContain("步枪");
+    expect(card.method).toContain("直击");
+    expect(card.method).toContain("打不穿");
+    expect(card.method).not.toContain("大约");
+    expect(card.method).not.toContain("打头");
+    expect(card.rules).toContain("投射物距离衰减用的是简化公式，和游戏内模拟大约差 2%–4%。");
+  });
+
+  it("keeps the storm call note when that first piece cannot penetrate", () => {
+    const shell: Enemy = {
+      ...charger,
+      parts: [
+        { id: "head", name: "头", armor: 10, health: 600, durability: 0, fatal: true, breakable: false },
+      ],
+    };
+    const card = assess(shell, [strike], { weather: ["ion-storms"], gloom: "none" });
+    expect(card.method).toContain("轨道打击");
+    expect(card.method).toContain("爆炸");
+    expect(card.method).toContain("打不穿");
+    expect(card.method).toContain("风暴间歇才能呼叫");
+    expect(card.method).not.toContain("大约");
+  });
+
+  it("writes the projectile rule only when a projectile result is shown", () => {
+    const aimed = assess(charger, [rifle], calm);
+    expect(aimed.method).toContain("大约");
+    expect(aimed.method).not.toContain("打不穿");
+    expect(aimed.rules).toContain("投射物距离衰减用的是简化公式，和游戏内模拟大约差 2%–4%。");
+    expect(aimed.rules.some((line) => line.includes("耐久缺失"))).toBe(false);
+    const boom = assess(charger, [strike], calm);
+    expect(boom.rules.some((line) => line.includes("投射物"))).toBe(false);
+  });
+
+  it("records a standard-damage rule when durability is missing", () => {
+    const soft: Enemy = {
+      ...charger,
+      parts: [{ id: "head", name: "头", armor: 4, health: 100, fatal: true, breakable: false }],
+    };
+    const card = assess(soft, [rifle], calm);
+    expect(card.missing.some((line) => line.includes("耐久"))).toBe(true);
+    expect(card.rules).toContain("耐久缺失时只用标准伤害。");
+  });
+
   it("does not publish a plate-only count when the inner part has no health", () => {
     const plated: Enemy = {
       ...charger,
@@ -228,6 +283,7 @@ describe("assess", () => {
     };
     const card = assess(plated, [rifle], calm);
     expect(card.method).not.toContain("大约");
+    expect(card.method).not.toContain("打不穿");
     expect(card.gear.every((item) => !item.reason.includes("大约"))).toBe(true);
     expect(card.gear[0]?.shots).toBeUndefined();
   });
