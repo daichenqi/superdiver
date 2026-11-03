@@ -19,6 +19,18 @@
       .checks { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px 12px; margin: 0 0 12px; }
       .checks label { display: flex; gap: 6px; align-items: center; }
       #card h2 { font-size: 22px; }
+      @media (min-width: 960px) {
+        #app {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+          align-items: start;
+          column-gap: 16px;
+          max-width: 1200px;
+        }
+        #app > h1 { grid-column: 1 / -1; }
+        #app > section:not(#card) { grid-column: 1; }
+        #card { grid-column: 2; grid-row: 2 / span 3; }
+      }
       #unknown-hazards { margin: 8px 0 0; color: #6a4b16; }
       #planet-status { color: #5c564c; }
       a { color: #1d4e89; }
