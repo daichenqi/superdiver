@@ -103,6 +103,22 @@ describe("assess", () => {
     expect(card.method.length).toBeGreaterThan(0);
   });
 
+  it("names missing combat data when selected gear cannot be ranked", () => {
+    const blank: GearPiece = {
+      ...rifle,
+      attacks: [],
+      missingCombatData: true,
+    };
+    const card = assess(charger, [blank], calm);
+    expect(card.method).toContain("缺少战斗数据");
+    expect(card.method).not.toContain("打头");
+    expect(card.method).not.toContain("打腿肉");
+    expect(card.method).not.toContain("部位暂缺");
+    expect(card.method).not.toContain("火焰更有效");
+    expect(card.missing.some((line) => line.includes("缺少战斗数据") && line.includes("步枪"))).toBe(true);
+    expect(card.gear).toEqual([]);
+  });
+
   it("applies heat cooldown once when fire tornados and intense heat are both on", () => {
     const laser: GearPiece = {
       ...rifle,

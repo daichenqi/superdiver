@@ -485,7 +485,11 @@ export function assess(
   const lead = rated[0];
 
   return {
-    method: lead ? methodFrom(lead, ion) : openMethod(enemy, weakPoints, damageTypes),
+    method: lead
+      ? methodFrom(lead, ion)
+      : gear.length > 0
+        ? "缺少战斗数据。"
+        : openMethod(enemy, weakPoints, damageTypes),
     conditions: lead ? listConditions(lead.attack, lead.verdict, enemy, mainCtx, byId) : [],
     environment: listEnvironment(situation, gear),
     damageTypes,
