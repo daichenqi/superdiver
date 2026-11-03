@@ -493,7 +493,9 @@ async function refreshPlanets(): Promise<void> {
   planetStatus.textContent = "读取中";
   const previous = planetSelect.value;
   try {
-    const response = await fetch("/hd2-api/api/v1/planets", { headers: { "X-Super-Client": "hd2-kill-card" } });
+    const response = await fetch("/hd2-api/api/v1/planets", {
+      headers: { "X-Super-Client": "hd2-kill-card", "X-Super-Contact": "hd2-kill-card@local" },
+    });
     if (!response.ok) throw new Error(String(response.status));
     const planets = normalizePlanets(await response.json());
     if (planets.length === 0) throw new Error("empty");

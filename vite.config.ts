@@ -7,7 +7,7 @@ export default defineConfig({
         target: "https://api.helldivers2.dev",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/hd2-api/, ""),
-        headers: { "X-Super-Client": "hd2-kill-card" },
+        headers: { "X-Super-Client": "hd2-kill-card", "X-Super-Contact": "hd2-kill-card@local" },
       },
     },
   },
