@@ -81,13 +81,6 @@ function attackAtAp(attack: AttackProfile, ap: number): AttackProfile {
   return { ...attack, ap: { front: ap, slight: ap, large: ap, extreme: ap } };
 }
 
-function aimCandidates(parts: Part[]): Part[] {
-  // A part listed as behindId is reached by the outer shot, so it is not its own aim point.
-  const reachedFromOutside = new Set(parts.flatMap((part) => (part.behindId ? [part.behindId] : [])));
-  const surface = parts.filter((part) => !reachedFromOutside.has(part.id));
-  return surface.length > 0 ? surface : parts;
-}
-
 function aimedVerdict(
   attack: AttackProfile,
   part: Part,
@@ -171,10 +164,9 @@ function bestAimed(
   missing: string[],
   recordMissing: boolean,
 ): Verdict {
-  const candidates = aimCandidates(parts);
-  if (candidates.length === 0) return emptyVerdict();
-  let best = aimedVerdict(attack, candidates[0], ctx, byId, missing, recordMissing);
-  for (const part of candidates.slice(1)) {
+  if (parts.length === 0) return emptyVerdict();
+  let best = aimedVerdict(attack, parts[0], ctx, byId, missing, recordMissing);
+  for (const part of parts.slice(1)) {
     const verdict = aimedVerdict(attack, part, ctx, byId, missing, recordMissing);
     if (compareOutcome(verdict, best) < 0) best = verdict;
   }

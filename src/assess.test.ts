@@ -14,7 +14,7 @@ const charger: Enemy = {
   parts: [
     { id: "head", name: "头", armor: 4, health: 600, durability: 0.2, fatal: true, breakable: false },
     { id: "leg", name: "腿甲", armor: 4, health: 400, durability: 0, fatal: false, breakable: true, behindId: "flesh" },
-    { id: "flesh", name: "腿肉", armor: 1, health: 200, durability: 0, fatal: true, breakable: false },
+    { id: "flesh", name: "腿肉", armor: 1, health: 5000, durability: 0, fatal: true, breakable: false },
     { id: "butt", name: "臀", armor: 0, health: 800, durability: 0.8, fatal: false, breakable: false, behindId: "flesh" },
   ],
 };
@@ -60,6 +60,18 @@ const strike: GearPiece = {
 };
 
 describe("assess", () => {
+  it("aims inner flesh when a plate only lists it as behindId", () => {
+    const plated: Enemy = {
+      ...charger,
+      parts: [
+        { id: "leg", name: "腿甲", armor: 4, health: 400, durability: 0, fatal: false, breakable: true, behindId: "flesh" },
+        { id: "flesh", name: "腿肉", armor: 1, health: 200, durability: 0, fatal: true, breakable: false },
+      ],
+    };
+    const card = assess(plated, [rifle], calm);
+    expect(card.method).toContain("腿肉");
+  });
+
   it("shows an angle condition only when the result changes", () => {
     const card = assess(charger, [rifle], calm);
     expect(card.conditions.some((line) => line.includes("61"))).toBe(true);
