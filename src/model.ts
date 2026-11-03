@@ -34,6 +34,8 @@ export interface AttackProfile {
 export interface GearPiece {
   id: string;
   name: string;
+  model?: string;
+  nameEn?: string;
   slot: Slot;
   order: number;
   requiresCall: boolean;

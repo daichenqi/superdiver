@@ -26,6 +26,8 @@ export interface CatalogItem {
 
 export interface WikiExtra {
   ap?: AttackProfile["ap"];
+  standardDamage?: number;
+  durableDamage?: number;
   ballistics?: AttackProfile["ballistics"];
   explosion?: AttackProfile["explosion"];
   beam?: AttackProfile["beam"];
@@ -47,11 +49,28 @@ function placement(productKind: string): { slot: Slot; requiresCall: boolean } {
   }
 }
 
+function catalogPenetration(component: CatalogComponent): number | undefined {
+  return component.fields?.armorPenetration?.value;
+}
+
+function attackAp(component: CatalogComponent, extra: WikiExtra | undefined): AttackProfile["ap"] | undefined {
+  const penetration = catalogPenetration(component);
+  return extra?.ap ?? (penetration == null ? undefined : { front: penetration });
+}
+
+function attackDamage(component: CatalogComponent, extra: WikiExtra | undefined): number | undefined {
+  return extra?.standardDamage ?? component.fields?.standardDamage;
+}
+
+function attackDurable(component: CatalogComponent, extra: WikiExtra | undefined): number | undefined {
+  return extra?.durableDamage ?? component.fields?.durableDamage;
+}
+
 function toAttack(item: CatalogItem, component: CatalogComponent, extra: WikiExtra | undefined): AttackProfile | undefined {
-  const standardDamage = component.fields?.standardDamage;
-  const penetration = component.fields?.armorPenetration?.value;
-  const ap = extra?.ap ?? (penetration == null ? undefined : { front: penetration });
+  const standardDamage = attackDamage(component, extra);
+  const ap = attackAp(component, extra);
   if (standardDamage == null || ap == null) return undefined;
+  const durableDamage = attackDurable(component, extra);
 
   const kind = component.type === "explosion" ? "explosion" : component.type === "beam" ? "beam" : "projectile";
   return {
@@ -61,7 +80,7 @@ function toAttack(item: CatalogItem, component: CatalogComponent, extra: WikiExt
     aimed: component.type !== "explosion",
     ap,
     standardDamage,
-    ...(component.fields?.durableDamage != null ? { durableDamage: component.fields.durableDamage } : {}),
+    ...(durableDamage != null ? { durableDamage } : {}),
     heat: (item.weaponType != null && /energy|laser|heat/i.test(item.weaponType)) || component.type === "beam",
     ...(item.handling?.fireRate != null ? { roundsPerMinute: item.handling.fireRate } : {}),
     ...(item.deployment?.cooldownSeconds != null ? { cooldownSeconds: item.deployment.cooldownSeconds } : {}),
@@ -86,6 +105,8 @@ export function toGear(
     const gear: GearPiece = {
       id: item.id,
       name: item.nameZh || item.nameEn,
+      ...(item.model ? { model: item.model } : {}),
+      ...(item.nameEn ? { nameEn: item.nameEn } : {}),
       slot: placed.slot,
       order,
       requiresCall: placed.requiresCall,
@@ -99,4 +120,34 @@ export function toGear(
 
 export function filterEnemies(enemies: Enemy[]): Enemy[] {
   return enemies.filter((enemy) => enemy.faction !== "Cyborg Legion");
+}
+
+function conflictFields(component: CatalogComponent, extra: WikiExtra): { label: string; catalog: number; wiki: number }[] {
+  const pairs: { label: string; catalog: number | undefined; wiki: number | undefined }[] = [
+    { label: "穿甲", catalog: catalogPenetration(component), wiki: extra.ap?.front },
+    { label: "标准伤害", catalog: component.fields?.standardDamage, wiki: extra.standardDamage },
+    { label: "耐久伤害", catalog: component.fields?.durableDamage, wiki: extra.durableDamage },
+  ];
+  return pairs.flatMap((pair) => {
+    if (pair.catalog == null || pair.wiki == null || pair.catalog === pair.wiki) return [];
+    return [{ label: pair.label, catalog: pair.catalog, wiki: pair.wiki }];
+  });
+}
+
+export function listConflicts(items: CatalogItem[], extras: Record<string, WikiExtra>): string[] {
+  const lines: string[] = [];
+  for (const item of items) {
+    const extra = extras[item.id];
+    if (!extra) continue;
+    const components = item.combat?.components ?? [];
+    const several = components.length > 1;
+    for (const component of components) {
+      if (attackDamage(component, extra) == null || attackAp(component, extra) == null) continue;
+      for (const field of conflictFields(component, extra)) {
+        const prefix = several ? `${item.id}:${component.id}` : item.id;
+        lines.push(`${prefix}:${field.label}:目录${field.catalog}:wiki${field.wiki}`);
+      }
+    }
+  }
+  return lines;
 }

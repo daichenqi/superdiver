@@ -1,5 +1,5 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
-import { filterEnemies, toGear } from "../src/import-catalog.ts";
+import { filterEnemies, listConflicts, toGear } from "../src/import-catalog.ts";
 import type { CatalogItem, WikiExtra } from "../src/import-catalog.ts";
 import type { Enemy } from "../src/model.ts";
 
@@ -28,10 +28,7 @@ const items = readJson<CatalogItem[]>(catalogPath);
 const extras = existsSync(extrasPath) ? readJson<Record<string, WikiExtra>>(extrasPath) : {};
 const aliases = existsSync(aliasesPath) ? readJson<Record<string, string[]>>(aliasesPath) : {};
 const gear = toGear(items, extras, aliases);
-const conflicts: string[] = [];
-for (const [id, extra] of Object.entries(extras)) {
-  for (const field of extra.conflicts ?? []) conflicts.push(`${id}:${field}`);
-}
+const conflicts = listConflicts(items, extras);
 
 writeFileSync("data/equipment.json", `${JSON.stringify(gear, null, 2)}\n`);
 writeFileSync("data/aliases.json", `${JSON.stringify(aliases, null, 2)}\n`);
