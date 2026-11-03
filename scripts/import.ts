@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { filterEnemies, listConflicts, toGear } from "../src/import-catalog.ts";
 import type { CatalogItem, WikiExtra } from "../src/import-catalog.ts";
 import type { Enemy } from "../src/model.ts";
@@ -40,4 +40,10 @@ writeFileSync("data/meta.json", `${JSON.stringify({
 
 if (existsSync(enemiesPath)) {
   writeFileSync("data/enemies.json", `${JSON.stringify(filterEnemies(readJson<Enemy[]>(enemiesPath)), null, 2)}\n`);
+}
+
+mkdirSync("public/data", { recursive: true });
+for (const name of readdirSync("data")) {
+  if (!name.endsWith(".json")) continue;
+  copyFileSync(`data/${name}`, `public/data/${name}`);
 }

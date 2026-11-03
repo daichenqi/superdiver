@@ -1,0 +1,24 @@
+[
+  {
+    "id": "charger",
+    "name": "冲锋虫",
+    "faction": "Terminids",
+    "health": 1000,
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Charger",
+    "multipliers": { "fire": 1.5, "gas": 0, "arc": 0.5 },
+    "parts": [
+      { "id": "head", "name": "头", "armor": 4, "health": 600, "durability": 0.2, "fatal": true, "breakable": false },
+      { "id": "leg", "name": "腿甲", "armor": 4, "health": 400, "durability": 0, "fatal": false, "breakable": true, "behindId": "flesh" },
+      { "id": "flesh", "name": "腿肉", "armor": 1, "health": 5000, "durability": 0, "fatal": true, "breakable": false },
+      { "id": "butt", "name": "臀", "armor": 0, "health": 800, "durability": 0.8, "fatal": false, "breakable": false, "behindId": "flesh" }
+    ]
+  },
+  {
+    "id": "scavenger",
+    "name": "拾荒者",
+    "faction": "Terminids",
+    "health": 80,
+    "multipliers": {},
+    "parts": []
+  }
+]

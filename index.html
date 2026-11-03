@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>击杀卡</title>
+    <style>
+      :root { color-scheme: light; }
+      body { margin: 0; font: 16px/1.5 "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: #f3f0e8; color: #1d1a16; }
+      #app { max-width: 920px; margin: 0 auto; padding: 24px 16px 48px; }
+      h1 { margin: 0 0 16px; font-size: 28px; }
+      h2 { margin: 0 0 12px; font-size: 18px; }
+      h3 { margin: 12px 0 4px; font-size: 15px; }
+      section { background: #fff; border: 1px solid #ddd4c4; padding: 16px; margin: 0 0 16px; }
+      .field { display: grid; gap: 4px; margin: 0 0 12px; }
+      .field .name { font-weight: 600; }
+      input[type="text"], select, button { font: inherit; padding: 6px 8px; }
+      .planet-row { display: flex; gap: 8px; align-items: center; margin: 0 0 12px; }
+      .checks { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px 12px; margin: 0 0 12px; }
+      .checks label { display: flex; gap: 6px; align-items: center; }
+      #card h2 { font-size: 22px; }
+      #unknown-hazards { margin: 8px 0 0; color: #6a4b16; }
+      #planet-status { color: #5c564c; }
+      a { color: #1d4e89; }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
