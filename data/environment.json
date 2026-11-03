@@ -1,0 +1,17 @@
+{
+  "hazards": {
+    "acid storms": "acid-storms",
+    "blizzards": "blizzards",
+    "extreme cold": "extreme-cold",
+    "fire tornados": "fire-tornados",
+    "intense heat": "intense-heat",
+    "ion storms": "ion-storms",
+    "meteor storms": "meteor-storms",
+    "rainstorms": "rainstorms",
+    "sandstorms": "sandstorms",
+    "thick fog": "thick-fog",
+    "tremors": "tremors",
+    "volcanic activity": "volcanic-activity"
+  },
+  "gloom": {}
+}

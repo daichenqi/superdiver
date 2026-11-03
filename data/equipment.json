@@ -1,0 +1,23 @@
+[
+  {
+    "id": "rifle",
+    "name": "步枪",
+    "slot": "primary",
+    "order": 0,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "hit",
+        "label": "直击",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": { "front": 4, "slight": 4, "large": 2, "extreme": 2 },
+        "standardDamage": 100,
+        "durableDamage": 100,
+        "heat": false,
+        "roundsPerMinute": 600
+      }
+    ]
+  }
+]
