@@ -1,22 +1,4832 @@
 [
   {
-    "id": "rifle",
-    "name": "步枪",
-    "slot": "primary",
+    "id": "40-k-meltagun",
+    "name": "40-K热熔枪",
+    "model": "40-K",
+    "nameEn": "40-K Meltagun",
+    "slot": "support",
     "order": 0,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "20141-component-1",
+        "label": "Laser",
+        "kind": "beam",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 2600,
+        "durableDamage": 2600,
+        "heat": true,
+        "roundsPerMinute": 50,
+        "cooldownSeconds": 410
+      }
+    ]
+  },
+  {
+    "id": "a-ac-8-autocannon-sentry",
+    "name": "自动哨戒炮",
+    "model": "A/AC-8",
+    "nameEn": "A/AC-8 Autocannon Sentry",
+    "slot": "stratagem",
+    "order": 1,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2384-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 450,
+        "heat": false,
+        "roundsPerMinute": 160,
+        "cooldownSeconds": 150
+      }
+    ]
+  },
+  {
+    "id": "a-arc-3-tesla-tower",
+    "name": "特斯拉塔",
+    "model": "A/ARC-3",
+    "nameEn": "A/ARC-3 Tesla Tower",
+    "slot": "stratagem",
+    "order": 2,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2370-component-1",
+        "label": "Arc",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 600,
+        "heat": false,
+        "cooldownSeconds": 120
+      }
+    ]
+  },
+  {
+    "id": "a-flam-40-flame-sentry",
+    "name": "火焰喷射哨戒炮",
+    "model": "A/FLAM-40",
+    "nameEn": "A/FLAM-40 Flame Sentry",
+    "slot": "stratagem",
+    "order": 3,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "a-g-16-gatling-sentry",
+    "name": "加特林哨戒炮",
+    "model": "A/G-16",
+    "nameEn": "A/G-16 Gatling Sentry",
+    "slot": "stratagem",
+    "order": 4,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2381-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 90,
+        "heat": false,
+        "roundsPerMinute": 1600,
+        "cooldownSeconds": 150
+      }
+    ]
+  },
+  {
+    "id": "a-gm-17-gas-mortar-sentry",
+    "name": "瓦斯迫击哨戒炮",
+    "model": "A/GM-17",
+    "nameEn": "A/GM-17 Gas Mortar Sentry",
+    "slot": "stratagem",
+    "order": 5,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "17267-component-1",
+        "label": "Gas",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 25,
+        "heat": false,
+        "roundsPerMinute": 80,
+        "cooldownSeconds": 180
+      }
+    ]
+  },
+  {
+    "id": "a-las-98-laser-sentry",
+    "name": "激光哨戒炮",
+    "model": "A/LAS-98",
+    "nameEn": "A/LAS-98 Laser Sentry",
+    "slot": "stratagem",
+    "order": 6,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "a-m-12-mortar-sentry",
+    "name": "迫击哨戒炮",
+    "model": "A/M-12",
+    "nameEn": "A/M-12 Mortar Sentry",
+    "slot": "stratagem",
+    "order": 7,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2382-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 400,
+        "heat": false,
+        "roundsPerMinute": 60,
+        "cooldownSeconds": 180
+      }
+    ]
+  },
+  {
+    "id": "a-m-23-ems-mortar-sentry",
+    "name": "电磁冲击波哨戒炮",
+    "model": "A/M-23",
+    "nameEn": "A/M-23 EMS Mortar Sentry",
+    "slot": "stratagem",
+    "order": 8,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2386-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 0,
+        "heat": false,
+        "roundsPerMinute": 60,
+        "cooldownSeconds": 180
+      }
+    ]
+  },
+  {
+    "id": "a-mg-43-machine-gun-sentry",
+    "name": "哨戒机枪",
+    "model": "A/MG-43",
+    "nameEn": "A/MG-43 Machine Gun Sentry",
+    "slot": "stratagem",
+    "order": 9,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2380-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 90,
+        "heat": false,
+        "roundsPerMinute": 660,
+        "cooldownSeconds": 90
+      }
+    ]
+  },
+  {
+    "id": "a-mls-4x-rocket-sentry",
+    "name": "火箭哨戒炮",
+    "model": "A/MLS-4X",
+    "nameEn": "A/MLS-4X Rocket Sentry",
+    "slot": "stratagem",
+    "order": 10,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2385-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 525,
+        "heat": false,
+        "roundsPerMinute": 90,
+        "cooldownSeconds": 150
+      }
+    ]
+  },
+  {
+    "id": "ac-8-autocannon",
+    "name": "机炮",
+    "model": "AC-8",
+    "nameEn": "AC-8 Autocannon",
+    "slot": "support",
+    "order": 11,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2233-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 325,
+        "heat": false,
+        "roundsPerMinute": 190,
+        "cooldownSeconds": 480
+      },
+      {
+        "id": "2233-component-2",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 150,
+        "heat": false,
+        "roundsPerMinute": 190,
+        "cooldownSeconds": 480
+      },
+      {
+        "id": "2233-component-3",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 110,
+        "heat": false,
+        "roundsPerMinute": 190,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "apw-1-anti-materiel-rifle",
+    "name": "反器材步枪",
+    "model": "APW-1",
+    "nameEn": "APW-1 Anti-Materiel Rifle",
+    "slot": "support",
+    "order": 12,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2356-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 450,
+        "durableDamage": 225,
+        "heat": false,
+        "roundsPerMinute": 400,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "ar-2-coyote",
+    "name": "野狼",
+    "model": "AR-2",
+    "nameEn": "AR-2 Coyote",
+    "slot": "primary",
+    "order": 13,
     "requiresCall": false,
     "eagle": false,
     "attacks": [
       {
-        "id": "hit",
-        "label": "直击",
+        "id": "13826-component-1",
+        "label": "Ballistic",
         "kind": "projectile",
         "aimed": true,
-        "ap": { "front": 4, "slight": 4, "large": 2, "extreme": 2 },
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 75,
+        "heat": false,
+        "roundsPerMinute": 600
+      }
+    ]
+  },
+  {
+    "id": "ar-23-liberator",
+    "name": "解放者",
+    "model": "AR-23",
+    "nameEn": "AR-23 Liberator",
+    "slot": "primary",
+    "order": 14,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2341-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 90,
+        "heat": false,
+        "roundsPerMinute": 640
+      }
+    ]
+  },
+  {
+    "id": "ar-23a-liberator-carbine",
+    "name": "“解放者”卡宾枪",
+    "model": "AR-23A",
+    "nameEn": "AR-23A Liberator Carbine",
+    "slot": "primary",
+    "order": 15,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "6752-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 90,
+        "heat": false,
+        "roundsPerMinute": 920
+      }
+    ]
+  },
+  {
+    "id": "ar-23c-liberator-concussive",
+    "name": "震荡“解放者”",
+    "model": "AR-23C",
+    "nameEn": "AR-23C Liberator Concussive",
+    "slot": "primary",
+    "order": 16,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2342-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 75,
+        "heat": false,
+        "roundsPerMinute": 400
+      }
+    ]
+  },
+  {
+    "id": "ar-23p-liberator-penetrator",
+    "name": "穿甲“解放者”",
+    "model": "AR-23P",
+    "nameEn": "AR-23P Liberator Penetrator",
+    "slot": "primary",
+    "order": 17,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2226-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 65,
+        "heat": false,
+        "roundsPerMinute": 640
+      }
+    ]
+  },
+  {
+    "id": "ar-32-pacifier",
+    "name": "安抚者",
+    "model": "AR-32",
+    "nameEn": "AR-32 Pacifier",
+    "slot": "primary",
+    "order": 18,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "12637-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 55,
+        "heat": false,
+        "roundsPerMinute": 700
+      }
+    ]
+  },
+  {
+    "id": "ar-59-suppressor",
+    "name": "消音器",
+    "model": "AR-59",
+    "nameEn": "AR-59 Suppressor",
+    "slot": "primary",
+    "order": 19,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "15415-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 80,
+        "heat": false,
+        "roundsPerMinute": 850
+      }
+    ]
+  },
+  {
+    "id": "ar-61-tenderizer",
+    "name": "肉锤",
+    "model": "AR-61",
+    "nameEn": "AR-61 Tenderizer",
+    "slot": "primary",
+    "order": 20,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "6155-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 105,
+        "heat": false,
+        "roundsPerMinute": 600
+      }
+    ]
+  },
+  {
+    "id": "ar-gl-21-one-two",
+    "name": "幺二",
+    "model": "AR/GL-21",
+    "nameEn": "AR/GL-21 One-Two",
+    "slot": "primary",
+    "order": 21,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "14685-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 95,
+        "heat": false,
+        "roundsPerMinute": 650
+      },
+      {
+        "id": "14685-component-2",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 250,
+        "heat": false,
+        "roundsPerMinute": 650
+      }
+    ]
+  },
+  {
+    "id": "arc-12-blitzer",
+    "name": "雷霆",
+    "model": "ARC-12",
+    "nameEn": "ARC-12 Blitzer",
+    "slot": "primary",
+    "order": 22,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "3110-component-1",
+        "label": "Arc",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 250,
+        "heat": true,
+        "roundsPerMinute": 45
+      }
+    ]
+  },
+  {
+    "id": "arc-3-arc-thrower",
+    "name": "电弧发射器",
+    "model": "ARC-3",
+    "nameEn": "ARC-3 Arc Thrower",
+    "slot": "support",
+    "order": 23,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2378-component-1",
+        "label": "Arc",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 250,
+        "heat": true,
+        "roundsPerMinute": 60,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "ax-ar-23-guard-dog",
+    "name": "“护卫犬”",
+    "model": "AX/AR-23",
+    "nameEn": "AX/AR-23 Guard Dog",
+    "slot": "stratagem",
+    "order": 24,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2383-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 65,
+        "heat": false,
+        "roundsPerMinute": 660,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "ax-arc-3-k-9",
+    "name": "“护卫犬”K-9",
+    "model": "AX/ARC-3",
+    "nameEn": "AX/ARC-3 K-9",
+    "slot": "stratagem",
+    "order": 25,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "12718-component-1",
+        "label": "Arc",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 250,
+        "heat": false,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "ax-flam-75-hot-dog",
+    "name": "热狗",
+    "model": "AX/FLAM-75",
+    "nameEn": "AX/FLAM-75 Hot Dog",
+    "slot": "stratagem",
+    "order": 26,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "ax-las-5-rover",
+    "name": "“护卫犬”漫游车",
+    "model": "AX/LAS-5",
+    "nameEn": "AX/LAS-5 Rover",
+    "slot": "stratagem",
+    "order": 27,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "ax-tx-13-dog-breath",
+    "name": "“护卫犬”腐息",
+    "model": "AX/TX-13",
+    "nameEn": "AX/TX-13 Dog Breath",
+    "slot": "stratagem",
+    "order": 28,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "b-1-supply-pack",
+    "name": "补给背包",
+    "model": "B-1",
+    "nameEn": "B-1 Supply Pack",
+    "slot": "stratagem",
+    "order": 29,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "b-100-portable-hellbomb",
+    "name": "便携式地狱火炸弹",
+    "model": "B-100",
+    "nameEn": "B-100 Portable Hellbomb",
+    "slot": "stratagem",
+    "order": 30,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "10361-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 10
+        },
+        "standardDamage": 10000,
+        "durableDamage": 10000,
+        "heat": false,
+        "cooldownSeconds": 300
+      }
+    ]
+  },
+  {
+    "id": "b-flam-80-cremator",
+    "name": "焚燃者",
+    "model": "B/FLAM-80",
+    "nameEn": "B/FLAM-80 Cremator",
+    "slot": "support",
+    "order": 31,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "b-md-c4-pack",
+    "name": "C4背包",
+    "model": "B/MD",
+    "nameEn": "B/MD C4 Pack",
+    "slot": "support",
+    "order": 32,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "15427-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 2000,
+        "heat": false,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "br-14-adjudicator",
+    "name": "审判者",
+    "model": "BR-14",
+    "nameEn": "BR-14 Adjudicator",
+    "slot": "primary",
+    "order": 33,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "4563-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 95,
+        "heat": false,
+        "roundsPerMinute": 550
+      }
+    ]
+  },
+  {
+    "id": "cb-9-exploding-crossbow",
+    "name": "爆燃弩",
+    "model": "CB-9",
+    "nameEn": "CB-9 Exploding Crossbow",
+    "slot": "primary",
+    "order": 34,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "4565-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 270,
+        "heat": false,
+        "roundsPerMinute": 50
+      }
+    ]
+  },
+  {
+    "id": "cqc-1-one-true-flag",
+    "name": "唯一真旗",
+    "model": "CQC-1",
+    "nameEn": "CQC-1 One True Flag",
+    "slot": "support",
+    "order": 35,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "12041-component-1",
+        "label": "Melee",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 200,
+        "heat": false,
+        "roundsPerMinute": 117,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "cqc-19-stun-lance",
+    "name": "眩晕长矛",
+    "model": "CQC-19",
+    "nameEn": "CQC-19 Stun Lance",
+    "slot": "secondary",
+    "order": 36,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "9049-component-1",
+        "label": "Melee",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 165,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "cqc-2-saber",
+    "name": "军刀",
+    "model": "CQC-2",
+    "nameEn": "CQC-2 Saber",
+    "slot": "secondary",
+    "order": 37,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "12061-component-1",
+        "label": "Melee",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 188,
+        "durableDamage": 65,
+        "heat": false,
+        "roundsPerMinute": 150
+      }
+    ]
+  },
+  {
+    "id": "cqc-20-breaching-hammer",
+    "name": "破门锤",
+    "model": "CQC-20",
+    "nameEn": "CQC-20 Breaching Hammer",
+    "slot": "support",
+    "order": 38,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "15876-component-1",
+        "label": "Melee",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 300,
+        "heat": false,
+        "cooldownSeconds": 480
+      },
+      {
+        "id": "15876-component-2",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 2200,
+        "heat": false,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "cqc-30-stun-baton",
+    "name": "眩晕短棍",
+    "model": "CQC-30",
+    "nameEn": "CQC-30 Stun Baton",
+    "slot": "secondary",
+    "order": 39,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "9050-component-1",
+        "label": "Melee",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 120,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "cqc-42-machete",
+    "name": "砍刀",
+    "model": "CQC-42",
+    "nameEn": "CQC-42 Machete",
+    "slot": "secondary",
+    "order": 40,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "13851-component-1",
+        "label": "Melee",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 300,
+        "durableDamage": 150,
+        "heat": false,
+        "roundsPerMinute": 72
+      }
+    ]
+  },
+  {
+    "id": "cqc-5-combat-hatchet",
+    "name": "战斗短柄斧",
+    "model": "CQC-5",
+    "nameEn": "CQC-5 Combat Hatchet",
+    "slot": "secondary",
+    "order": 41,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "10371-component-1",
+        "label": "Melee",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 240,
+        "heat": false,
+        "roundsPerMinute": 100
+      }
+    ]
+  },
+  {
+    "id": "cqc-72-entrenchment-tool",
+    "name": "堑壕工具",
+    "model": "CQC-72",
+    "nameEn": "CQC-72 Entrenchment Tool",
+    "slot": "support",
+    "order": 42,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "10335-component-1",
+        "label": "Melee",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 165,
+        "heat": false,
+        "roundsPerMinute": 150
+      }
+    ]
+  },
+  {
+    "id": "cqc-73-entrenchment-tool",
+    "name": "堑壕工具",
+    "model": "CQC-73",
+    "nameEn": "CQC-73 Entrenchment Tool",
+    "slot": "secondary",
+    "order": 43,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "17266-component-1",
+        "label": "Melee",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 165,
+        "heat": false,
+        "roundsPerMinute": 150
+      }
+    ]
+  },
+  {
+    "id": "cqc-9-defoliation-tool",
+    "name": "除叶工具",
+    "model": "CQC-9",
+    "nameEn": "CQC-9 Defoliation Tool",
+    "slot": "support",
+    "order": 44,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "14690-component-1",
+        "label": "Melee",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 450,
+        "heat": false,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "dbs-2-double-freedom",
+    "name": "双重自由",
+    "model": "DBS-2",
+    "nameEn": "DBS-2 Double Freedom",
+    "slot": "primary",
+    "order": 45,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "14884-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 840,
+        "heat": false,
+        "roundsPerMinute": 650
+      }
+    ]
+  },
+  {
+    "id": "e-at-12-anti-tank-emplacement",
+    "name": "反坦克炮台",
+    "model": "E/AT-12",
+    "nameEn": "E/AT-12 Anti-Tank Emplacement",
+    "slot": "stratagem",
+    "order": 46,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "9014-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 1300,
+        "heat": false,
+        "roundsPerMinute": 60,
+        "cooldownSeconds": 180
+      }
+    ]
+  },
+  {
+    "id": "e-gl-21-grenadier-battlement",
+    "name": "掷弹兵防护墙",
+    "model": "E/GL-21",
+    "nameEn": "E/GL-21 Grenadier Battlement",
+    "slot": "stratagem",
+    "order": 47,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "11126-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 400,
+        "heat": false,
+        "roundsPerMinute": 160,
+        "cooldownSeconds": 120
+      }
+    ]
+  },
+  {
+    "id": "e-mg-101-hmg-emplacement",
+    "name": "重机枪部署支架",
+    "model": "E/MG-101",
+    "nameEn": "E/MG-101 HMG Emplacement",
+    "slot": "stratagem",
+    "order": 48,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2368-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 200,
+        "heat": false,
+        "roundsPerMinute": 660,
+        "cooldownSeconds": 180
+      }
+    ]
+  },
+  {
+    "id": "eagle-110mm-rocket-pods",
+    "name": "“飞鹰”110mm火箭巢",
+    "nameEn": "Eagle 110mm Rocket Pods",
+    "slot": "stratagem",
+    "order": 49,
+    "requiresCall": true,
+    "eagle": true,
+    "attacks": [
+      {
+        "id": "2242-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 600,
+        "durableDamage": 600,
+        "heat": false,
+        "cooldownSeconds": 15
+      },
+      {
+        "id": "2242-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 300,
+        "durableDamage": 300,
+        "heat": false,
+        "cooldownSeconds": 15
+      }
+    ]
+  },
+  {
+    "id": "eagle-500kg-bomb",
+    "name": "“飞鹰”500KG炸弹",
+    "nameEn": "Eagle 500kg Bomb",
+    "slot": "stratagem",
+    "order": 50,
+    "requiresCall": true,
+    "eagle": true,
+    "attacks": [
+      {
+        "id": "2367-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 2000,
+        "durableDamage": 2000,
+        "heat": false,
+        "cooldownSeconds": 15
+      },
+      {
+        "id": "2367-component-2",
+        "label": "explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 1500,
+        "durableDamage": 1500,
+        "heat": false,
+        "cooldownSeconds": 15
+      },
+      {
+        "id": "2367-component-3",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
         "standardDamage": 100,
         "durableDamage": 100,
         "heat": false,
+        "cooldownSeconds": 15
+      }
+    ]
+  },
+  {
+    "id": "eagle-airstrike",
+    "name": "“飞鹰”空袭",
+    "nameEn": "Eagle Airstrike",
+    "slot": "stratagem",
+    "order": 51,
+    "requiresCall": true,
+    "eagle": true,
+    "attacks": [
+      {
+        "id": "2244-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 1500,
+        "durableDamage": 1500,
+        "heat": false,
+        "cooldownSeconds": 15
+      },
+      {
+        "id": "2244-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 800,
+        "durableDamage": 800,
+        "heat": false,
+        "cooldownSeconds": 15
+      }
+    ]
+  },
+  {
+    "id": "eagle-cluster-bomb",
+    "name": "“飞鹰”集束炸弹",
+    "nameEn": "Eagle Cluster Bomb",
+    "slot": "stratagem",
+    "order": 52,
+    "requiresCall": true,
+    "eagle": true,
+    "attacks": [
+      {
+        "id": "2365-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 1500,
+        "durableDamage": 1500,
+        "heat": false,
+        "cooldownSeconds": 15
+      },
+      {
+        "id": "2365-component-2",
+        "label": "explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 350,
+        "durableDamage": 350,
+        "heat": false,
+        "cooldownSeconds": 15
+      },
+      {
+        "id": "2365-component-4",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 350,
+        "durableDamage": 350,
+        "heat": false,
+        "cooldownSeconds": 15
+      }
+    ]
+  },
+  {
+    "id": "eagle-napalm-airstrike",
+    "name": "“飞鹰”凝固汽油弹空袭",
+    "nameEn": "Eagle Napalm Airstrike",
+    "slot": "stratagem",
+    "order": 53,
+    "requiresCall": true,
+    "eagle": true,
+    "attacks": [
+      {
+        "id": "2246-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 1500,
+        "durableDamage": 1500,
+        "heat": false,
+        "cooldownSeconds": 15
+      },
+      {
+        "id": "2246-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 250,
+        "durableDamage": 250,
+        "heat": false,
+        "cooldownSeconds": 15
+      }
+    ]
+  },
+  {
+    "id": "eagle-smoke-strike",
+    "name": "“飞鹰”烟雾攻击",
+    "nameEn": "Eagle Smoke Strike",
+    "slot": "stratagem",
+    "order": 54,
+    "requiresCall": true,
+    "eagle": true,
+    "attacks": [
+      {
+        "id": "2247-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 1500,
+        "durableDamage": 1500,
+        "heat": false,
+        "cooldownSeconds": 15
+      }
+    ]
+  },
+  {
+    "id": "eagle-strafing-run",
+    "name": "“飞鹰”机枪扫射",
+    "nameEn": "Eagle Strafing Run",
+    "slot": "stratagem",
+    "order": 55,
+    "requiresCall": true,
+    "eagle": true,
+    "attacks": [
+      {
+        "id": "2248-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 350,
+        "durableDamage": 200,
+        "heat": false,
+        "cooldownSeconds": 15
+      },
+      {
+        "id": "2248-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 350,
+        "durableDamage": 350,
+        "heat": false,
+        "cooldownSeconds": 15
+      }
+    ]
+  },
+  {
+    "id": "eat-17-expendable-anti-tank",
+    "name": "消耗性反坦克武器",
+    "model": "EAT-17",
+    "nameEn": "EAT-17 Expendable Anti-Tank",
+    "slot": "support",
+    "order": 56,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2358-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 2000,
+        "heat": false,
+        "cooldownSeconds": 70
+      },
+      {
+        "id": "2358-component-2",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 150,
+        "heat": false,
+        "cooldownSeconds": 70
+      }
+    ]
+  },
+  {
+    "id": "eat-411-leveller",
+    "name": "荡平者",
+    "model": "EAT-411",
+    "nameEn": "EAT-411 Leveller",
+    "slot": "support",
+    "order": 57,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "15873-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 1000,
+        "heat": false,
+        "roundsPerMinute": 600,
+        "cooldownSeconds": 140
+      }
+    ]
+  },
+  {
+    "id": "eat-700-expendable-napalm",
+    "name": "消耗性凝固汽油弹",
+    "model": "EAT-700",
+    "nameEn": "EAT-700 Expendable Napalm",
+    "slot": "support",
+    "order": 58,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "13847-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 500,
+        "heat": false,
+        "roundsPerMinute": 600,
+        "cooldownSeconds": 140
+      }
+    ]
+  },
+  {
+    "id": "exo-45-patriot-exosuit",
+    "name": "“爱国者”外骨骼机甲",
+    "model": "EXO-45",
+    "nameEn": "EXO-45 Patriot Exosuit",
+    "slot": "stratagem",
+    "order": 59,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2806-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 90,
+        "durableDamage": 23,
+        "heat": false,
+        "cooldownSeconds": 420
+      },
+      {
+        "id": "2806-component-2",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 1250,
+        "durableDamage": 1250,
+        "heat": false,
+        "cooldownSeconds": 420
+      },
+      {
+        "id": "2806-component-3",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 400,
+        "durableDamage": 400,
+        "heat": false,
+        "cooldownSeconds": 420
+      }
+    ]
+  },
+  {
+    "id": "exo-49-emancipator-exosuit",
+    "name": "“解放者”外骨骼机甲",
+    "model": "EXO-49",
+    "nameEn": "EXO-49 Emancipator Exosuit",
+    "slot": "stratagem",
+    "order": 60,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "6462-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 300,
+        "durableDamage": 150,
+        "heat": false,
+        "cooldownSeconds": 420
+      },
+      {
+        "id": "6462-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 150,
+        "durableDamage": 150,
+        "heat": false,
+        "cooldownSeconds": 420
+      }
+    ]
+  },
+  {
+    "id": "exo-51-lumberer-exosuit",
+    "name": "“伐木者”外骨骼装甲",
+    "model": "EXO-51",
+    "nameEn": "EXO-51 Lumberer Exosuit",
+    "slot": "stratagem",
+    "order": 61,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "18422-component-1",
+        "label": "spray",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 3,
+        "durableDamage": 3,
+        "heat": false,
+        "cooldownSeconds": 420
+      },
+      {
+        "id": "18422-component-2",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 1300,
+        "durableDamage": 1300,
+        "heat": false,
+        "cooldownSeconds": 420
+      },
+      {
+        "id": "18422-component-3",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 150,
+        "durableDamage": 150,
+        "heat": false,
+        "cooldownSeconds": 420
+      }
+    ]
+  },
+  {
+    "id": "exo-55-breakthrough-exosuit",
+    "name": "“突破”外骨骼装甲",
+    "model": "EXO-55",
+    "nameEn": "EXO-55 Breakthrough Exosuit",
+    "slot": "stratagem",
+    "order": 62,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "18423-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 3600,
+        "heat": false,
+        "roundsPerMinute": 180,
+        "cooldownSeconds": 420
+      }
+    ]
+  },
+  {
+    "id": "faf-14-spear",
+    "name": "飞矛",
+    "model": "FAF-14",
+    "nameEn": "FAF-14 Spear",
+    "slot": "support",
+    "order": 63,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "1577-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 4000,
+        "heat": false,
+        "cooldownSeconds": 480
+      },
+      {
+        "id": "1577-component-2",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 200,
+        "heat": false,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "flam-40-flamethrower",
+    "name": "火焰喷射器",
+    "model": "FLAM-40",
+    "nameEn": "FLAM-40 Flamethrower",
+    "slot": "support",
+    "order": 64,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "flam-66-torcher",
+    "name": "火炬手",
+    "model": "FLAM-66",
+    "nameEn": "FLAM-66 Torcher",
+    "slot": "primary",
+    "order": 65,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "fx-12-shield-generator-relay",
+    "name": "防护罩生成中继器",
+    "model": "FX-12",
+    "nameEn": "FX-12 Shield Generator Relay",
+    "slot": "stratagem",
+    "order": 66,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "g-10-incendiary",
+    "name": "燃烧弹",
+    "model": "G-10",
+    "nameEn": "G-10 Incendiary",
+    "slot": "grenade",
+    "order": 67,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "3269-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 300,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "g-109-urchin",
+    "name": "海胆",
+    "model": "G-109",
+    "nameEn": "G-109 Urchin",
+    "slot": "grenade",
+    "order": 68,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "12733-component-1",
+        "label": "Direct",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 0,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "g-12-high-explosive",
+    "name": "高爆弹",
+    "model": "G-12",
+    "nameEn": "G-12 High Explosive",
+    "slot": "grenade",
+    "order": 69,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2540-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 800,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "g-123-thermite",
+    "name": "铝热弹",
+    "model": "G-123",
+    "nameEn": "G-123 Thermite",
+    "slot": "grenade",
+    "order": 70,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "g-13-incendiary-impact",
+    "name": "燃烧冲击弹",
+    "model": "G-13",
+    "nameEn": "G-13 Incendiary Impact",
+    "slot": "grenade",
+    "order": 71,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "6160-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 150,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "g-142-pyrotech",
+    "name": "烟花术",
+    "model": "G-142",
+    "nameEn": "G-142 Pyrotech",
+    "slot": "grenade",
+    "order": 72,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "g-16-impact",
+    "name": "冲击弹",
+    "model": "G-16",
+    "nameEn": "G-16 Impact",
+    "slot": "grenade",
+    "order": 73,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2542-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 400,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "g-23-stun",
+    "name": "眩晕弹",
+    "model": "G-23",
+    "nameEn": "G-23 Stun",
+    "slot": "grenade",
+    "order": 74,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "3111-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 0,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "g-3-smoke",
+    "name": "烟雾弹",
+    "model": "G-3",
+    "nameEn": "G-3 Smoke",
+    "slot": "grenade",
+    "order": 75,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "g-31-arc",
+    "name": "电弧",
+    "model": "G-31",
+    "nameEn": "G-31 Arc",
+    "slot": "grenade",
+    "order": 76,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "13298-component-1",
+        "label": "Arc",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 100,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "g-4-gas",
+    "name": "毒气榴弹",
+    "model": "G-4",
+    "nameEn": "G-4 Gas",
+    "slot": "grenade",
+    "order": 77,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "7487-component-1",
+        "label": "Gas",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 3,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "g-40-k-melta-mine",
+    "name": "G/40-K热熔地雷",
+    "model": "G/40-K",
+    "nameEn": "G/40-K Melta Mine",
+    "slot": "grenade",
+    "order": 78,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "20142-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 2000,
+        "durableDamage": 2000,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "g-48-giga-grenade",
+    "name": "千兆级榴弹",
+    "model": "G-48",
+    "nameEn": "G-48 Giga Grenade",
+    "slot": "grenade",
+    "order": 79,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "17269-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 2000,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "g-50-seeker",
+    "name": "寻踪者",
+    "model": "G-50",
+    "nameEn": "G-50 Seeker",
+    "slot": "grenade",
+    "order": 80,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "10357-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 500,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "g-6-frag",
+    "name": "破片弹",
+    "model": "G-6",
+    "nameEn": "G-6 Frag",
+    "slot": "grenade",
+    "order": 81,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2538-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 500,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "g-7-pineapple",
+    "name": "菠萝",
+    "model": "G-7",
+    "nameEn": "G-7 Pineapple",
+    "slot": "grenade",
+    "order": 82,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "13844-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 300,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "g-89-smokescreen",
+    "name": "烟幕",
+    "model": "G-89",
+    "nameEn": "G-89 Smokescreen",
+    "slot": "grenade",
+    "order": 83,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "g-sh-39-shield",
+    "name": "盾雷",
+    "model": "G/SH-39",
+    "nameEn": "G/SH-39 Shield",
+    "slot": "grenade",
+    "order": 84,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "gl-21-grenade-launcher",
+    "name": "榴弹发射器",
+    "model": "GL-21",
+    "nameEn": "GL-21 Grenade Launcher",
+    "slot": "support",
+    "order": 85,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2256-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 400,
+        "heat": false,
+        "roundsPerMinute": 160,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "gl-28-belt-fed-grenade-launcher",
+    "name": "弹链式榴弹发射器",
+    "model": "GL-28",
+    "nameEn": "GL-28 Belt-Fed Grenade Launcher",
+    "slot": "support",
+    "order": 86,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "15878-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 150,
+        "heat": false,
+        "roundsPerMinute": 160,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "gl-52-de-escalator",
+    "name": "缓和使者",
+    "model": "GL-52",
+    "nameEn": "GL-52 De-Escalator",
+    "slot": "support",
+    "order": 87,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "12723-component-1",
+        "label": "Arc",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 100,
+        "durableDamage": 70,
+        "heat": false,
+        "roundsPerMinute": 200,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "gp-20-ultimatum",
+    "name": "最后通牒",
+    "model": "GP-20",
+    "nameEn": "GP-20 Ultimatum",
+    "slot": "secondary",
+    "order": 88,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "10341-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 1000,
+        "heat": false,
+        "roundsPerMinute": 20
+      }
+    ]
+  },
+  {
+    "id": "gp-31-grenade-pistol",
+    "name": "榴弹手枪",
+    "model": "GP-31",
+    "nameEn": "GP-31 Grenade Pistol",
+    "slot": "secondary",
+    "order": 89,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "4562-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 250,
+        "heat": false,
+        "roundsPerMinute": 35
+      }
+    ]
+  },
+  {
+    "id": "gr-8-recoilless-rifle",
+    "name": "无后坐力炮",
+    "model": "GR-8",
+    "nameEn": "GR-8 Recoilless Rifle",
+    "slot": "support",
+    "order": 90,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2359-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 3200,
+        "heat": false,
+        "cooldownSeconds": 480
+      },
+      {
+        "id": "2359-component-2",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 150,
+        "heat": false,
+        "cooldownSeconds": 480
+      },
+      {
+        "id": "2359-component-3",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 750,
+        "heat": false,
+        "cooldownSeconds": 480
+      },
+      {
+        "id": "2359-component-4",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 800,
+        "heat": false,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "jar-5-dominator",
+    "name": "主宰",
+    "model": "JAR-5",
+    "nameEn": "JAR-5 Dominator",
+    "slot": "primary",
+    "order": 91,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2263-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 275,
+        "heat": false,
+        "roundsPerMinute": 250
+      }
+    ]
+  },
+  {
+    "id": "k-2-throwing-knife",
+    "name": "飞刀",
+    "model": "K-2",
+    "nameEn": "K-2 Throwing Knife",
+    "slot": "grenade",
+    "order": 92,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "6771-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 300,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "las-13-trident",
+    "name": "LAS-13“三叉戟”",
+    "model": "LAS-13",
+    "nameEn": "LAS-13 Trident",
+    "slot": "primary",
+    "order": 93,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "15881-component-1",
+        "label": "Beam",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 360,
+        "heat": true,
+        "roundsPerMinute": 300
+      }
+    ]
+  },
+  {
+    "id": "las-16-sickle",
+    "name": "镰刀",
+    "model": "LAS-16",
+    "nameEn": "LAS-16 Sickle",
+    "slot": "primary",
+    "order": 94,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "3112-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 60,
+        "heat": true,
+        "roundsPerMinute": 750
+      }
+    ]
+  },
+  {
+    "id": "las-17-double-edge-sickle",
+    "name": "双刃镰刀",
+    "model": "LAS-17",
+    "nameEn": "LAS-17 Double-Edge Sickle",
+    "slot": "primary",
+    "order": 95,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "10342-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 55,
+        "heat": true,
+        "roundsPerMinute": 700
+      }
+    ]
+  },
+  {
+    "id": "las-5-scythe",
+    "name": "长柄镰",
+    "model": "LAS-5",
+    "nameEn": "LAS-5 Scythe",
+    "slot": "primary",
+    "order": 96,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "las-58-talon",
+    "name": "猛爪",
+    "model": "LAS-58",
+    "nameEn": "LAS-58 Talon",
+    "slot": "secondary",
+    "order": 97,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "10897-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 200,
+        "heat": false,
+        "roundsPerMinute": 750
+      }
+    ]
+  },
+  {
+    "id": "las-7-dagger",
+    "name": "匕首",
+    "model": "LAS-7",
+    "nameEn": "LAS-7 Dagger",
+    "slot": "secondary",
+    "order": 98,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "las-98-laser-cannon",
+    "name": "激光大炮",
+    "model": "LAS-98",
+    "nameEn": "LAS-98 Laser Cannon",
+    "slot": "support",
+    "order": 99,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "las-99-quasar-cannon",
+    "name": "类星体加农炮",
+    "model": "LAS-99",
+    "nameEn": "LAS-99 Quasar Cannon",
+    "slot": "support",
+    "order": 100,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "4136-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 2000,
+        "heat": true,
+        "roundsPerMinute": 3.34,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "lift-182-warp-pack",
+    "name": "传送背包",
+    "model": "LIFT-182",
+    "nameEn": "LIFT-182 Warp Pack",
+    "slot": "stratagem",
+    "order": 101,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "lift-850-jump-pack",
+    "name": "喷气背包",
+    "model": "LIFT-850",
+    "nameEn": "LIFT-850 Jump Pack",
+    "slot": "stratagem",
+    "order": 102,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "lift-860-hover-pack",
+    "name": "悬浮背包",
+    "model": "LIFT-860",
+    "nameEn": "LIFT-860 Hover Pack",
+    "slot": "stratagem",
+    "order": 103,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "m-1000-maxigun",
+    "name": "重装机枪",
+    "model": "M-1000",
+    "nameEn": "M-1000 Maxigun",
+    "slot": "support",
+    "order": 104,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "14686-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 80,
+        "heat": false,
+        "roundsPerMinute": 1500,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "m-102-fast-recon-vehicle",
+    "name": "快速侦察载具",
+    "model": "M-102",
+    "nameEn": "M-102 Fast Recon Vehicle",
+    "slot": "stratagem",
+    "order": 105,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "8998-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 150,
+        "durableDamage": 35,
+        "heat": false,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "m-103-supply-frv",
+    "name": "补给型快速侦察载具",
+    "model": "M-103",
+    "nameEn": "M-103 Supply FRV",
+    "slot": "stratagem",
+    "order": 106,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "19396-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 65,
+        "durableDamage": 15,
+        "heat": false,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "m-104-incinerator-frv",
+    "name": "炽灼型快速侦察载具",
+    "model": "M-104",
+    "nameEn": "M-104 Incinerator FRV",
+    "slot": "stratagem",
+    "order": 107,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "19395-component-1",
+        "label": "spray",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 3,
+        "durableDamage": 3,
+        "heat": false,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "m-105-stalwart",
+    "name": "盟友",
+    "model": "M-105",
+    "nameEn": "M-105 Stalwart",
+    "slot": "support",
+    "order": 108,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2357-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 90,
+        "heat": false,
+        "roundsPerMinute": 700,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "m6c-socom-pistol",
+    "name": "M6C/特种作战",
+    "nameEn": "M6C/SOCOM Pistol",
+    "slot": "secondary",
+    "order": 109,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "13690-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 125,
+        "heat": false,
+        "roundsPerMinute": 900
+      }
+    ]
+  },
+  {
+    "id": "m7s-smg",
+    "name": "M7S冲锋枪",
+    "model": "M7S",
+    "nameEn": "M7S SMG",
+    "slot": "primary",
+    "order": 110,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "13687-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 90,
+        "heat": false,
+        "roundsPerMinute": 872
+      }
+    ]
+  },
+  {
+    "id": "m90a-shotgun",
+    "name": "M90A霰弹枪",
+    "model": "M90A",
+    "nameEn": "M90A Shotgun",
+    "slot": "primary",
+    "order": 111,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "13688-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 605,
+        "heat": false,
+        "roundsPerMinute": 80
+      }
+    ]
+  },
+  {
+    "id": "ma5c-assault-rifle",
+    "name": "MA5C突击步枪",
+    "model": "MA5C",
+    "nameEn": "MA5C Assault Rifle",
+    "slot": "primary",
+    "order": 112,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "13685-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 90,
+        "heat": false,
+        "roundsPerMinute": 640
+      }
+    ]
+  },
+  {
+    "id": "md-17-anti-tank-mines",
+    "name": "反坦克地雷",
+    "model": "MD-17",
+    "nameEn": "MD-17 Anti-Tank Mines",
+    "slot": "stratagem",
+    "order": 113,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "5879-component-1",
+        "label": "explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 2000,
+        "durableDamage": 2000,
+        "heat": false,
+        "cooldownSeconds": 120
+      }
+    ]
+  },
+  {
+    "id": "md-6-anti-personnel-minefield",
+    "name": "反步兵雷区",
+    "model": "MD-6",
+    "nameEn": "MD-6 Anti-Personnel Minefield",
+    "slot": "stratagem",
+    "order": 114,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2371-component-1",
+        "label": "explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 700,
+        "durableDamage": 700,
+        "heat": false,
+        "cooldownSeconds": 120
+      }
+    ]
+  },
+  {
+    "id": "md-8-gas-mines",
+    "name": "毒气地雷",
+    "model": "MD-8",
+    "nameEn": "MD-8 Gas Mines",
+    "slot": "stratagem",
+    "order": 115,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "8683-component-1",
+        "label": "explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 3,
+        "durableDamage": 3,
+        "heat": false,
+        "cooldownSeconds": 120
+      }
+    ]
+  },
+  {
+    "id": "md-i4-incendiary-mines",
+    "name": "燃烧地雷",
+    "model": "MD-I4",
+    "nameEn": "MD-I4 Incendiary Mines",
+    "slot": "stratagem",
+    "order": 116,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2375-component-1",
+        "label": "explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 300,
+        "durableDamage": 300,
+        "heat": false,
+        "cooldownSeconds": 120
+      }
+    ]
+  },
+  {
+    "id": "mg-206-heavy-machine-gun",
+    "name": "重机枪",
+    "model": "MG-206",
+    "nameEn": "MG-206 Heavy Machine Gun",
+    "slot": "support",
+    "order": 117,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "4137-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 150,
+        "heat": false,
+        "roundsPerMinute": 450,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "mg-43-machine-gun",
+    "name": "MG-43机枪",
+    "model": "MG-43",
+    "nameEn": "MG-43 Machine Gun",
+    "slot": "support",
+    "order": 118,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2268-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 90,
+        "heat": false,
+        "roundsPerMinute": 630,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "mgx-42-bullet-storm",
+    "name": "子弹风暴",
+    "model": "MGX-42",
+    "nameEn": "MGX-42 Bullet Storm",
+    "slot": "support",
+    "order": 119,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "18421-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 100,
+        "heat": false,
+        "roundsPerMinute": 1300,
+        "cooldownSeconds": 70
+      }
+    ]
+  },
+  {
+    "id": "mls-4x-commando",
+    "name": "突击兵",
+    "model": "MLS-4X",
+    "nameEn": "MLS-4X Commando",
+    "slot": "support",
+    "order": 120,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "7111-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 1100,
+        "heat": false,
+        "roundsPerMinute": 240,
+        "cooldownSeconds": 120
+      }
+    ]
+  },
+  {
+    "id": "mp-98-knight",
+    "name": "骑士",
+    "model": "MP-98",
+    "nameEn": "MP-98 Knight",
+    "slot": "primary",
+    "order": 121,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2267-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 90,
+        "heat": false,
+        "roundsPerMinute": 1380
+      }
+    ]
+  },
+  {
+    "id": "ms-11-solo-silo",
+    "name": "单兵导弹发射井",
+    "model": "MS-11",
+    "nameEn": "MS-11 Solo Silo",
+    "slot": "support",
+    "order": 122,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "13846-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 2500,
+        "heat": false,
+        "cooldownSeconds": 180
+      },
+      {
+        "id": "13846-component-2",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 9
+        },
+        "standardDamage": 1500,
+        "heat": false,
+        "cooldownSeconds": 180
+      }
+    ]
+  },
+  {
+    "id": "orbital-120mm-he-barrage",
+    "name": "轨道120MM高爆弹火力网",
+    "nameEn": "Orbital 120mm HE Barrage",
+    "slot": "stratagem",
+    "order": 123,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2362-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 3500,
+        "durableDamage": 3500,
+        "heat": false,
+        "cooldownSeconds": 180
+      },
+      {
+        "id": "2362-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 1200,
+        "durableDamage": 1200,
+        "heat": false,
+        "cooldownSeconds": 180
+      }
+    ]
+  },
+  {
+    "id": "orbital-380mm-he-barrage",
+    "name": "轨道380mm高爆弹火力网",
+    "nameEn": "Orbital 380mm HE Barrage",
+    "slot": "stratagem",
+    "order": 124,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2363-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 8
+        },
+        "standardDamage": 4000,
+        "durableDamage": 4000,
+        "heat": false,
+        "cooldownSeconds": 240
+      },
+      {
+        "id": "2363-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 1500,
+        "durableDamage": 1500,
+        "heat": false,
+        "cooldownSeconds": 240
+      }
+    ]
+  },
+  {
+    "id": "orbital-airburst-strike",
+    "name": "轨道空爆攻击",
+    "nameEn": "Orbital Airburst Strike",
+    "slot": "stratagem",
+    "order": 125,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2276-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 300,
+        "durableDamage": 300,
+        "heat": false,
+        "cooldownSeconds": 100
+      },
+      {
+        "id": "2276-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 350,
+        "durableDamage": 350,
+        "heat": false,
+        "cooldownSeconds": 100
+      },
+      {
+        "id": "2276-component-3",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 300,
+        "durableDamage": 150,
+        "heat": false,
+        "cooldownSeconds": 100
+      },
+      {
+        "id": "2276-component-4",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 350,
+        "durableDamage": 350,
+        "heat": false,
+        "cooldownSeconds": 100
+      }
+    ]
+  },
+  {
+    "id": "orbital-ems-strike",
+    "name": "轨道电磁冲击波攻击",
+    "nameEn": "Orbital EMS Strike",
+    "slot": "stratagem",
+    "order": 126,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2278-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 300,
+        "durableDamage": 300,
+        "heat": false,
+        "cooldownSeconds": 75
+      },
+      {
+        "id": "2278-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 0,
+        "durableDamage": 0,
+        "heat": false,
+        "cooldownSeconds": 75
+      }
+    ]
+  },
+  {
+    "id": "orbital-gas-strike",
+    "name": "轨道毒气攻击",
+    "nameEn": "Orbital Gas Strike",
+    "slot": "stratagem",
+    "order": 127,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2279-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 300,
+        "durableDamage": 300,
+        "heat": false,
+        "cooldownSeconds": 75
+      },
+      {
+        "id": "2279-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 0,
+        "durableDamage": 0,
+        "heat": false,
+        "cooldownSeconds": 75
+      }
+    ]
+  },
+  {
+    "id": "orbital-gatling-barrage",
+    "name": "轨道加特林火力网",
+    "nameEn": "Orbital Gatling Barrage",
+    "slot": "stratagem",
+    "order": 128,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2280-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 350,
+        "durableDamage": 200,
+        "heat": false,
+        "cooldownSeconds": 70
+      },
+      {
+        "id": "2280-component-2",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 350,
+        "durableDamage": 200,
+        "heat": false,
+        "cooldownSeconds": 70
+      },
+      {
+        "id": "2280-component-3",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 350,
+        "durableDamage": 350,
+        "heat": false,
+        "cooldownSeconds": 70
+      }
+    ]
+  },
+  {
+    "id": "orbital-illumination-flare",
+    "name": "轨道照明弹",
+    "nameEn": "Orbital Illumination Flare",
+    "slot": "stratagem",
+    "order": 129,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "orbital-laser",
+    "name": "轨道激光炮",
+    "nameEn": "Orbital Laser",
+    "slot": "stratagem",
+    "order": 130,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2364-component-1",
+        "label": "spray",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 60,
+        "durableDamage": 60,
+        "heat": false,
+        "cooldownSeconds": 300
+      }
+    ]
+  },
+  {
+    "id": "orbital-napalm-barrage",
+    "name": "轨道凝固汽油弹火力网",
+    "model": "—",
+    "nameEn": "Orbital Napalm Barrage",
+    "slot": "stratagem",
+    "order": 131,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "7370-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 500,
+        "durableDamage": 500,
+        "heat": false,
+        "cooldownSeconds": 240
+      },
+      {
+        "id": "7370-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 350,
+        "durableDamage": 350,
+        "heat": false,
+        "cooldownSeconds": 240
+      }
+    ]
+  },
+  {
+    "id": "orbital-precision-strike",
+    "name": "轨道精准攻击",
+    "nameEn": "Orbital Precision Strike",
+    "slot": "stratagem",
+    "order": 132,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2282-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 8
+        },
+        "standardDamage": 4000,
+        "durableDamage": 4000,
+        "heat": false,
+        "cooldownSeconds": 90
+      },
+      {
+        "id": "2282-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 1500,
+        "durableDamage": 1500,
+        "heat": false,
+        "cooldownSeconds": 90
+      }
+    ]
+  },
+  {
+    "id": "orbital-railcannon-strike",
+    "name": "轨道炮攻击",
+    "nameEn": "Orbital Railcannon Strike",
+    "slot": "stratagem",
+    "order": 133,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2283-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 10000,
+        "durableDamage": 10000,
+        "heat": false,
+        "cooldownSeconds": 180
+      },
+      {
+        "id": "2283-component-2",
+        "label": "explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 1000,
+        "durableDamage": 1000,
+        "heat": false,
+        "cooldownSeconds": 180
+      }
+    ]
+  },
+  {
+    "id": "orbital-smoke-strike",
+    "name": "轨道烟雾攻击",
+    "nameEn": "Orbital Smoke Strike",
+    "slot": "stratagem",
+    "order": 134,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2284-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 7
+        },
+        "standardDamage": 300,
+        "durableDamage": 300,
+        "heat": false,
+        "cooldownSeconds": 75
+      }
+    ]
+  },
+  {
+    "id": "orbital-walking-barrage",
+    "name": "轨道游走火力网",
+    "nameEn": "Orbital Walking Barrage",
+    "slot": "stratagem",
+    "order": 135,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2286-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 8
+        },
+        "standardDamage": 4000,
+        "durableDamage": 4000,
+        "heat": false,
+        "cooldownSeconds": 240
+      },
+      {
+        "id": "2286-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 1500,
+        "durableDamage": 1500,
+        "heat": false,
+        "cooldownSeconds": 240
+      }
+    ]
+  },
+  {
+    "id": "p-11-stim-pistol",
+    "name": "治疗剂手枪",
+    "model": "P-11",
+    "nameEn": "P-11 Stim Pistol",
+    "slot": "secondary",
+    "order": 136,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "p-113-verdict",
+    "name": "裁决",
+    "model": "P-113",
+    "nameEn": "P-113 Verdict",
+    "slot": "secondary",
+    "order": 137,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "6159-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 140,
+        "heat": false,
+        "roundsPerMinute": 450
+      }
+    ]
+  },
+  {
+    "id": "p-19-redeemer",
+    "name": "救世主",
+    "model": "P-19",
+    "nameEn": "P-19 Redeemer",
+    "slot": "secondary",
+    "order": 138,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2287-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 70,
+        "durableDamage": 12,
+        "heat": false,
+        "roundsPerMinute": 1100
+      }
+    ]
+  },
+  {
+    "id": "p-2-peacemaker",
+    "name": "和平制造者",
+    "model": "P-2",
+    "nameEn": "P-2 Peacemaker",
+    "slot": "secondary",
+    "order": 139,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2348-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 100,
+        "heat": false,
+        "roundsPerMinute": 900
+      }
+    ]
+  },
+  {
+    "id": "p-33-missile-pistol",
+    "name": "制导手枪",
+    "model": "P-33",
+    "nameEn": "P-33 Missile Pistol",
+    "slot": "secondary",
+    "order": 140,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "18455-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 1000,
+        "heat": false,
+        "roundsPerMinute": 60
+      },
+      {
+        "id": "18455-component-2",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 300,
+        "heat": false,
+        "roundsPerMinute": 60
+      }
+    ]
+  },
+  {
+    "id": "p-35-re-educator",
+    "name": "思想改造",
+    "model": "P-35",
+    "nameEn": "P-35 Re-Educator",
+    "slot": "secondary",
+    "order": 141,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "15416-component-1",
+        "label": "Gas",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 60,
+        "heat": false,
+        "roundsPerMinute": 110
+      }
+    ]
+  },
+  {
+    "id": "p-4-senator",
+    "name": "参议员",
+    "model": "P-4",
+    "nameEn": "P-4 Senator",
+    "slot": "secondary",
+    "order": 142,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2288-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 225,
+        "heat": false,
+        "roundsPerMinute": 200
+      }
+    ]
+  },
+  {
+    "id": "p-40-k-bolt-pistol",
+    "name": "P/40-K爆弹手枪",
+    "model": "P/40-K",
+    "nameEn": "P/40-K Bolt Pistol",
+    "slot": "secondary",
+    "order": 143,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "20140-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 325,
+        "durableDamage": 115,
+        "heat": false,
+        "roundsPerMinute": 150
+      },
+      {
+        "id": "20140-component-2",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 175,
+        "durableDamage": 175,
+        "heat": false,
+        "roundsPerMinute": 150
+      }
+    ]
+  },
+  {
+    "id": "p-69-veto",
+    "name": "否决者",
+    "model": "P-69",
+    "nameEn": "P-69 Veto",
+    "slot": "secondary",
+    "order": 144,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "17264-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 105,
+        "heat": false,
+        "roundsPerMinute": 750
+      }
+    ]
+  },
+  {
+    "id": "p-72-crisper",
+    "name": "迅击",
+    "model": "P-72",
+    "nameEn": "P-72 Crisper",
+    "slot": "secondary",
+    "order": 145,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "p-92-warrant",
+    "name": "法令",
+    "model": "P-92",
+    "nameEn": "P-92 Warrant",
+    "slot": "secondary",
+    "order": 146,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "12735-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 80,
+        "heat": false,
+        "roundsPerMinute": 450
+      }
+    ]
+  },
+  {
+    "id": "plas-1-scorcher",
+    "name": "焦土",
+    "model": "PLAS-1",
+    "nameEn": "PLAS-1 Scorcher",
+    "slot": "primary",
+    "order": 147,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2347-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 100,
+        "heat": true,
+        "roundsPerMinute": 350
+      },
+      {
+        "id": "2347-component-2",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 100,
+        "heat": true,
+        "roundsPerMinute": 350
+      }
+    ]
+  },
+  {
+    "id": "plas-101-purifier",
+    "name": "净化者",
+    "model": "PLAS-101",
+    "nameEn": "PLAS-101 Purifier",
+    "slot": "primary",
+    "order": 148,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "6158-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 100,
+        "heat": true,
+        "roundsPerMinute": 1000
+      }
+    ]
+  },
+  {
+    "id": "plas-15-loyalist",
+    "name": "忠诚者",
+    "model": "PLAS-15",
+    "nameEn": "PLAS-15 Loyalist",
+    "slot": "secondary",
+    "order": 149,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "8040-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 75,
+        "heat": false,
+        "roundsPerMinute": 1000
+      }
+    ]
+  },
+  {
+    "id": "plas-39-accelerator-rifle",
+    "name": "加速步枪",
+    "model": "PLAS-39",
+    "nameEn": "PLAS-39 Accelerator Rifle",
+    "slot": "primary",
+    "order": 150,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "9228-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 250,
+        "heat": true,
+        "roundsPerMinute": 550
+      }
+    ]
+  },
+  {
+    "id": "plas-45-epoch",
+    "name": "纪元",
+    "model": "PLAS-45",
+    "nameEn": "PLAS-45 Epoch",
+    "slot": "support",
+    "order": 151,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "13327-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 400,
+        "heat": false,
+        "roundsPerMinute": 600,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "r-2-amendment",
+    "name": "修正",
+    "model": "R-2",
+    "nameEn": "R-2 Amendment",
+    "slot": "primary",
+    "order": 152,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "12039-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 200,
+        "heat": false,
+        "roundsPerMinute": 480
+      }
+    ]
+  },
+  {
+    "id": "r-2124-constitution",
+    "name": "宪法",
+    "model": "R-2124",
+    "nameEn": "R-2124 Constitution",
+    "slot": "primary",
+    "order": 153,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "7951-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 180,
+        "heat": false,
+        "roundsPerMinute": 60
+      }
+    ]
+  },
+  {
+    "id": "r-36-eruptor",
+    "name": "爆裂铳",
+    "model": "R-36",
+    "nameEn": "R-36 Eruptor",
+    "slot": "primary",
+    "order": 154,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "4564-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 230,
+        "heat": false,
+        "roundsPerMinute": 32
+      },
+      {
+        "id": "4564-component-2",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 225,
+        "heat": false,
+        "roundsPerMinute": 32
+      }
+    ]
+  },
+  {
+    "id": "r-4-hyena",
+    "name": "鬣狗",
+    "model": "R-4",
+    "nameEn": "R-4 Hyena",
+    "slot": "primary",
+    "order": 155,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "19662-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 220,
+        "heat": false,
+        "roundsPerMinute": 190
+      }
+    ]
+  },
+  {
+    "id": "r-40-k-hot-shot-marksman-rifle",
+    "name": "R/40-K“热射线”精确射手步枪",
+    "model": "R/40-K",
+    "nameEn": "R/40-K Hot-Shot Marksman Rifle",
+    "slot": "primary",
+    "order": 156,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "20138-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 275,
+        "durableDamage": 40,
+        "heat": true,
+        "roundsPerMinute": 210
+      }
+    ]
+  },
+  {
+    "id": "r-6-deadeye",
+    "name": "鹰眼",
+    "model": "R-6",
+    "nameEn": "R-6 Deadeye",
+    "slot": "primary",
+    "order": 157,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "10894-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 300,
+        "heat": false,
+        "roundsPerMinute": 100
+      }
+    ]
+  },
+  {
+    "id": "r-63-diligence",
+    "name": "勤勉",
+    "model": "R-63",
+    "nameEn": "R-63 Diligence",
+    "slot": "primary",
+    "order": 158,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2293-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 165,
+        "heat": false,
+        "roundsPerMinute": 350
+      }
+    ]
+  },
+  {
+    "id": "r-63cs-diligence-counter-sniper",
+    "name": "反狙击“勤勉”",
+    "model": "R-63CS",
+    "nameEn": "R-63CS Diligence Counter Sniper",
+    "slot": "primary",
+    "order": 159,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2292-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 200,
+        "heat": false,
+        "roundsPerMinute": 350
+      }
+    ]
+  },
+  {
+    "id": "r-72-censor",
+    "name": "审查官",
+    "model": "R-72",
+    "nameEn": "R-72 Censor",
+    "slot": "primary",
+    "order": 160,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "15413-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 165,
+        "heat": false,
+        "roundsPerMinute": 400
+      }
+    ]
+  },
+  {
+    "id": "rl-77-airburst-rocket-launcher",
+    "name": "空爆火箭弹发射器",
+    "model": "RL-77",
+    "nameEn": "RL-77 Airburst Rocket Launcher",
+    "slot": "support",
+    "order": 161,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "5878-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 350,
+        "heat": false,
+        "roundsPerMinute": 16,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "rs-422-railgun",
+    "name": "磁轨炮",
+    "model": "RS-422",
+    "nameEn": "RS-422 Railgun",
+    "slot": "support",
+    "order": 162,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2361-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 600,
+        "heat": false,
+        "roundsPerMinute": 34,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "s-11-speargun",
+    "name": "矛枪",
+    "model": "S-11",
+    "nameEn": "S-11 Speargun",
+    "slot": "support",
+    "order": 163,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "sg-20-halt",
+    "name": "止息",
+    "model": "SG-20",
+    "nameEn": "SG-20 Halt",
+    "slot": "primary",
+    "order": 164,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "8039-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 385,
+        "heat": false,
+        "roundsPerMinute": 80
+      },
+      {
+        "id": "8039-component-2",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 120,
+        "heat": false,
+        "roundsPerMinute": 80
+      }
+    ]
+  },
+  {
+    "id": "sg-22-bushwhacker",
+    "name": "游击兵",
+    "model": "SG-22",
+    "nameEn": "SG-22 Bushwhacker",
+    "slot": "secondary",
+    "order": 165,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "6768-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 405,
+        "heat": false,
+        "roundsPerMinute": 650
+      }
+    ]
+  },
+  {
+    "id": "sg-225-breaker",
+    "name": "破裂者",
+    "model": "SG-225",
+    "nameEn": "SG-225 Breaker",
+    "slot": "primary",
+    "order": 166,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2345-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 330,
+        "heat": false,
+        "roundsPerMinute": 300
+      }
+    ]
+  },
+  {
+    "id": "sg-225ie-breaker-incendiary",
+    "name": "高燃“破裂者”",
+    "model": "SG-225IE",
+    "nameEn": "SG-225IE Breaker Incendiary",
+    "slot": "primary",
+    "order": 167,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2297-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 240,
+        "heat": false,
+        "roundsPerMinute": 300
+      }
+    ]
+  },
+  {
+    "id": "sg-225sp-breaker-spray-pray",
+    "name": "弥漫与祷告的“破裂者”",
+    "model": "SG-225SP",
+    "nameEn": "SG-225SP Breaker Spray&Pray",
+    "slot": "primary",
+    "order": 168,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2298-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 240,
+        "heat": false,
+        "roundsPerMinute": 330
+      }
+    ]
+  },
+  {
+    "id": "sg-451-cookout",
+    "name": "野炊",
+    "model": "SG-451",
+    "nameEn": "SG-451 Cookout",
+    "slot": "primary",
+    "order": 169,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "7255-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 320,
+        "heat": false,
+        "roundsPerMinute": 80
+      }
+    ]
+  },
+  {
+    "id": "sg-8-punisher",
+    "name": "制裁者",
+    "model": "SG-8",
+    "nameEn": "SG-8 Punisher",
+    "slot": "primary",
+    "order": 170,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2344-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 405,
+        "heat": false,
+        "roundsPerMinute": 80
+      }
+    ]
+  },
+  {
+    "id": "sg-88-break-action-shotgun",
+    "name": "中折式霰弹枪",
+    "model": "SG-88",
+    "nameEn": "SG-88 Break-Action Shotgun",
+    "slot": "support",
+    "order": 171,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "4219-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 585,
+        "heat": false,
         "roundsPerMinute": 600
+      }
+    ]
+  },
+  {
+    "id": "sg-8p-punisher-plasma",
+    "name": "等离子“制裁者”",
+    "model": "SG-8P",
+    "nameEn": "SG-8P Punisher Plasma",
+    "slot": "primary",
+    "order": 172,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "3113-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 225,
+        "heat": true,
+        "roundsPerMinute": 80
+      }
+    ]
+  },
+  {
+    "id": "sg-8s-slugger",
+    "name": "重炮手",
+    "model": "SG-8S",
+    "nameEn": "SG-8S Slugger",
+    "slot": "primary",
+    "order": 173,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2299-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 330,
+        "heat": false,
+        "roundsPerMinute": 80
+      }
+    ]
+  },
+  {
+    "id": "sg-97-sweeper",
+    "name": "扫荡者",
+    "model": "SG-97",
+    "nameEn": "SG-97 Sweeper",
+    "slot": "primary",
+    "order": 174,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "17569-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 504,
+        "heat": false,
+        "roundsPerMinute": 150
+      }
+    ]
+  },
+  {
+    "id": "sh-20-ballistic-shield-backpack",
+    "name": "防弹护盾背包",
+    "model": "SH-20",
+    "nameEn": "SH-20 Ballistic Shield Backpack",
+    "slot": "stratagem",
+    "order": 175,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "sh-32-shield-generator-pack",
+    "name": "防护罩生成器",
+    "model": "SH-32",
+    "nameEn": "SH-32 Shield Generator Pack",
+    "slot": "stratagem",
+    "order": 176,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "sh-51-directional-shield",
+    "name": "定向护盾",
+    "model": "SH-51",
+    "nameEn": "SH-51 Directional Shield",
+    "slot": "stratagem",
+    "order": 177,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "smg-203-gallant",
+    "name": "英勇无畏",
+    "model": "SMG-203",
+    "nameEn": "SMG-203 Gallant",
+    "slot": "primary",
+    "order": 178,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "18445-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 65,
+        "heat": false,
+        "roundsPerMinute": 1380
+      }
+    ]
+  },
+  {
+    "id": "smg-32-reprimand",
+    "name": "训斥",
+    "model": "SMG-32",
+    "nameEn": "SMG-32 Reprimand",
+    "slot": "primary",
+    "order": 179,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "8037-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 140,
+        "heat": false,
+        "roundsPerMinute": 490
+      }
+    ]
+  },
+  {
+    "id": "smg-37-defender",
+    "name": "防卫者",
+    "model": "SMG-37",
+    "nameEn": "SMG-37 Defender",
+    "slot": "primary",
+    "order": 180,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "2300-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 110,
+        "heat": false,
+        "roundsPerMinute": 520
+      }
+    ]
+  },
+  {
+    "id": "smg-72-pummeler",
+    "name": "暴击斗士",
+    "model": "SMG-72",
+    "nameEn": "SMG-72 Pummeler",
+    "slot": "primary",
+    "order": 181,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "6157-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 85,
+        "heat": false,
+        "roundsPerMinute": 475
+      }
+    ]
+  },
+  {
+    "id": "smg-flam-34-stoker",
+    "name": "司炉者",
+    "model": "SMG/FLAM-34",
+    "nameEn": "SMG/FLAM-34 Stoker",
+    "slot": "primary",
+    "order": 182,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "17261-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 130,
+        "heat": false,
+        "roundsPerMinute": 420
+      }
+    ]
+  },
+  {
+    "id": "sta-11-smg",
+    "name": "StA-11冲锋枪",
+    "model": "StA-11",
+    "nameEn": "StA-11 SMG",
+    "slot": "primary",
+    "order": 183,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "9323-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 90,
+        "heat": false,
+        "roundsPerMinute": 1050
+      }
+    ]
+  },
+  {
+    "id": "sta-52-assault-rifle",
+    "name": "StA-52突击步枪",
+    "model": "StA-52",
+    "nameEn": "StA-52 Assault Rifle",
+    "slot": "primary",
+    "order": 184,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "9189-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 90,
+        "heat": false,
+        "roundsPerMinute": 790
+      }
+    ]
+  },
+  {
+    "id": "sta-x3-w-a-s-p-launcher",
+    "name": "W.A.S.P.发射器",
+    "model": "StA-X3",
+    "nameEn": "StA-X3 W.A.S.P. Launcher",
+    "slot": "support",
+    "order": 185,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "9150-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 6
+        },
+        "standardDamage": 200,
+        "heat": false,
+        "roundsPerMinute": 500,
+        "cooldownSeconds": 480
+      },
+      {
+        "id": "9150-component-2",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 3
+        },
+        "standardDamage": 600,
+        "heat": false,
+        "roundsPerMinute": 500,
+        "cooldownSeconds": 480
+      }
+    ]
+  },
+  {
+    "id": "td-220-bastion-mk-xvi",
+    "name": "堡垒Mk XVI",
+    "model": "TD-220",
+    "nameEn": "TD-220 Bastion MK XVI",
+    "slot": "stratagem",
+    "order": 186,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "16075-component-1",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 8
+        },
+        "standardDamage": 3500,
+        "durableDamage": 3500,
+        "heat": false,
+        "cooldownSeconds": 780
+      },
+      {
+        "id": "16075-component-2",
+        "label": "Impact Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 750,
+        "durableDamage": 750,
+        "heat": false,
+        "cooldownSeconds": 780
+      },
+      {
+        "id": "16075-component-3",
+        "label": "projectile",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 150,
+        "durableDamage": 35,
+        "heat": false,
+        "cooldownSeconds": 780
+      }
+    ]
+  },
+  {
+    "id": "ted-63-dynamite",
+    "name": "炸药",
+    "model": "TED-63",
+    "nameEn": "TED-63 Dynamite",
+    "slot": "grenade",
+    "order": 187,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "10999-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 4
+        },
+        "standardDamage": 1000,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "tm-1-lure-mine",
+    "name": "诱饵地雷",
+    "model": "TM-1",
+    "nameEn": "TM-1 Lure Mine",
+    "slot": "grenade",
+    "order": 188,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "15420-component-1",
+        "label": "Explosion",
+        "kind": "explosion",
+        "aimed": false,
+        "ap": {
+          "front": 5
+        },
+        "standardDamage": 1000,
+        "heat": false
+      }
+    ]
+  },
+  {
+    "id": "tx-41-sterilizer",
+    "name": "TX-41灭菌器",
+    "model": "TX-41",
+    "nameEn": "TX-41 Sterilizer",
+    "slot": "support",
+    "order": 189,
+    "requiresCall": true,
+    "eagle": false,
+    "attacks": [],
+    "missingCombatData": true
+  },
+  {
+    "id": "vg-70-variable",
+    "name": "变数",
+    "model": "VG-70",
+    "nameEn": "VG-70 Variable",
+    "slot": "primary",
+    "order": 190,
+    "requiresCall": false,
+    "eagle": false,
+    "attacks": [
+      {
+        "id": "13265-component-1",
+        "label": "Ballistic",
+        "kind": "projectile",
+        "aimed": true,
+        "ap": {
+          "front": 2
+        },
+        "standardDamage": 85,
+        "heat": false,
+        "roundsPerMinute": 300
       }
     ]
   }

@@ -1,2 +1,126 @@
-{}
-
+{
+  "a-m-23-ems-mortar-sentry": [
+    "EMP迫击炮"
+  ],
+  "arc-12-blitzer": [
+    "电喷"
+  ],
+  "ax-ar-23-guard-dog": [
+    "实弹狗"
+  ],
+  "ax-arc-3-k-9": [
+    "电狗"
+  ],
+  "ax-las-5-rover": [
+    "激光狗"
+  ],
+  "ax-tx-13-dog-breath": [
+    "毒狗"
+  ],
+  "b-100-portable-hellbomb": [
+    "核弹背包"
+  ],
+  "cqc-1-one-true-flag": [
+    "国旗"
+  ],
+  "cqc-19-stun-lance": [
+    "电矛",
+    "电叉"
+  ],
+  "e-at-12-anti-tank-emplacement": [
+    "轮椅炮",
+    "AT炮"
+  ],
+  "e-gl-21-grenadier-battlement": [
+    "榴弹墙"
+  ],
+  "eat-17-expendable-anti-tank": [
+    "次抛"
+  ],
+  "exo-45-patriot-exosuit": [
+    "机枪机甲"
+  ],
+  "exo-49-emancipator-exosuit": [
+    "机炮机甲"
+  ],
+  "faf-14-spear": [
+    "肥猫"
+  ],
+  "g-109-urchin": [
+    "电雷"
+  ],
+  "g-123-thermite": [
+    "仙女棒"
+  ],
+  "g-16-impact": [
+    "摔炮"
+  ],
+  "gl-52-de-escalator": [
+    "电榴弹"
+  ],
+  "gp-20-ultimatum": [
+    "核弹手枪"
+  ],
+  "las-58-talon": [
+    "香蕉左轮",
+    "激光左轮"
+  ],
+  "lift-850-jump-pack": [
+    "跳包",
+    "喷包"
+  ],
+  "lift-860-hover-pack": [
+    "飞包",
+    "登山包"
+  ],
+  "orbital-napalm-barrage": [
+    "轨道火",
+    "轨汽"
+  ],
+  "p-113-verdict": [
+    "沙鹰"
+  ],
+  "p-4-senator": [
+    "左轮"
+  ],
+  "r-63-diligence": [
+    "小勤勉"
+  ],
+  "r-63cs-diligence-counter-sniper": [
+    "大勤勉"
+  ],
+  "rs-422-railgun": [
+    "磁小轨"
+  ],
+  "sg-22-bushwhacker": [
+    "副手喷",
+    "三连喷",
+    "三管喷",
+    "三眼喷"
+  ],
+  "sg-225ie-breaker-incendiary": [
+    "火喷",
+    "火连喷"
+  ],
+  "sg-225sp-breaker-spray-pray": [
+    "鸟喷"
+  ],
+  "sg-451-cookout": [
+    "泵动火喷"
+  ],
+  "sg-8p-punisher-plasma": [
+    "离子喷"
+  ],
+  "sh-32-shield-generator-pack": [
+    "蛋盾"
+  ],
+  "sta-x3-w-a-s-p-launcher": [
+    "黄蜂"
+  ],
+  "ted-63-dynamite": [
+    "C4"
+  ],
+  "uf-16-inspector": [
+    "政委甲"
+  ]
+}

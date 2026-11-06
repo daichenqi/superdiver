@@ -8,6 +8,8 @@ export interface CatalogComponent {
     standardDamage?: number;
     durableDamage?: number;
     armorPenetration?: { value: number };
+    innerRadius?: number;
+    outerRadius?: number;
   };
 }
 
@@ -20,7 +22,7 @@ export interface CatalogItem {
   weaponType?: string;
   wiki?: string;
   combat?: { components: CatalogComponent[] };
-  handling?: { fireRate?: number };
+  handling?: { fireRate?: number; firingModes?: string[] };
   deployment?: { cooldownSeconds?: number; type?: string };
 }
 
@@ -66,6 +68,17 @@ function attackDurable(component: CatalogComponent, extra: WikiExtra | undefined
   return extra?.durableDamage ?? component.fields?.durableDamage;
 }
 
+function explosionOf(
+  component: CatalogComponent,
+  extra: WikiExtra | undefined,
+): { explosion: NonNullable<AttackProfile["explosion"]> } | Record<string, never> {
+  if (extra?.explosion) return { explosion: extra.explosion };
+  const innerRadius = component.fields?.innerRadius;
+  const outerRadius = component.fields?.outerRadius;
+  if (innerRadius == null || outerRadius == null) return {};
+  return { explosion: { innerRadius, outerRadius, falloff: "quick" } };
+}
+
 function toAttack(item: CatalogItem, component: CatalogComponent, extra: WikiExtra | undefined): AttackProfile | undefined {
   const standardDamage = attackDamage(component, extra);
   const ap = attackAp(component, extra);
@@ -85,7 +98,7 @@ function toAttack(item: CatalogItem, component: CatalogComponent, extra: WikiExt
     ...(item.handling?.fireRate != null ? { roundsPerMinute: item.handling.fireRate } : {}),
     ...(item.deployment?.cooldownSeconds != null ? { cooldownSeconds: item.deployment.cooldownSeconds } : {}),
     ...(extra?.ballistics ? { ballistics: extra.ballistics } : {}),
-    ...(extra?.explosion ? { explosion: extra.explosion } : {}),
+    ...explosionOf(component, extra),
     ...(extra?.beam ? { beam: extra.beam } : {}),
   };
 }

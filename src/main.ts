@@ -1,6 +1,8 @@
 import { assess, type KillCard } from "./assess";
 import type { Enemy, GearPiece, Gloom, Situation, Slot, Weather } from "./model";
 import { mapPlanet } from "./planets";
+import { fetchWikiEnemies } from "./wiki-enemies";
+import { fetchWikiGear } from "./wiki-gear";
 
 const SELECTION_KEY = "hd2-kill-selection";
 const PLANET_KEY = "hd2-kill-planets";
@@ -73,11 +75,26 @@ interface Selection {
   gloom: Gloom;
 }
 
+interface Choice {
+  value: string;
+  label: string;
+  hint: string;
+  search: string;
+}
+
+interface Picker {
+  input: HTMLInputElement;
+  list: HTMLDivElement;
+  value: string;
+  active: number;
+  options: () => Choice[];
+  onChange: () => void;
+}
+
 interface GearRow {
   id: string;
   slot: Slot;
-  search: HTMLInputElement;
-  select: HTMLSelectElement;
+  picker: Picker;
 }
 
 const app = document.querySelector<HTMLDivElement>("#app");
@@ -102,19 +119,15 @@ card.id = "card";
 card.textContent = "先选一个敌人";
 app.append(title, loadoutSection, enemySection, environmentSection, card);
 
+const pickers: Picker[] = [];
 const gearRows: GearRow[] = WEAPON_ROWS.map((row) => addGearRow(loadoutSection, row.label, row.slot, row.id));
 const stratagemRows: GearRow[] = [0, 1, 2, 3].map((index) => (
   addGearRow(loadoutSection, `战略 ${index + 1}`, "stratagem", `stratagem-${index}`)
 ));
-const enemySearch = document.createElement("input");
-enemySearch.type = "text";
-enemySearch.id = "enemy-search";
-enemySearch.autocomplete = "off";
-enemySearch.placeholder = "搜索名称或 id";
-const enemySelect = document.createElement("select");
-enemySelect.id = "enemy";
-const enemyField = field("敌人", enemySearch, enemySelect);
-enemySection.append(enemyField);
+const enemyPicker = createPicker(enemySection, "敌人", "enemy", "输入名称或 id", enemyOptions, () => {
+  saveSelection();
+  renderCard();
+});
 
 const planetRow = document.createElement("div");
 planetRow.className = "planet-row";
@@ -151,18 +164,13 @@ let enemies: Enemy[] = [];
 let aliases: Record<string, string[]> = {};
 let environment: EnvironmentTables = { hazards: {}, gloom: {} };
 let meta: MetaFile = {};
+let loadNote = "";
 let planetCache: PlanetCache | null = null;
 let boundPlanet = "";
 let unknownHazards: string[] = [];
 let cachedAt: string | undefined;
 let quiet = false;
 
-enemySearch.addEventListener("input", () => fillEnemySelect());
-enemySelect.addEventListener("change", () => {
-  if (quiet) return;
-  saveSelection();
-  renderCard();
-});
 for (const box of weatherBoxes) box.addEventListener("change", onManualEnvironment);
 gloomSelect.addEventListener("change", onManualEnvironment);
 planetSelect.addEventListener("change", () => {
@@ -179,53 +187,61 @@ loadPlanetsButton.addEventListener("click", () => {
 void boot();
 
 async function boot(): Promise<void> {
+  card.textContent = "正在读取武器和敌人";
+  const [gearResult, enemyResult, tables] = await Promise.all([
+    loadGear(),
+    fetchWikiEnemies().then((rows) => ({ rows, error: "" })).catch(() => ({ rows: [] as Enemy[], error: "敌人没有读到" })),
+    readJson<EnvironmentTables>("/data/environment.json").catch(() => ({ hazards: {}, gloom: {} })),
+  ]);
+  equipment = gearResult.gear;
+  aliases = gearResult.aliases;
+  enemies = enemyResult.rows;
+  environment = tables;
+  const today = new Date();
+  const date = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+  meta = {
+    importedAt: gearResult.version
+      ? `武器数据 ${gearResult.version}。爆炸外圈按线性衰减，维基没有给出衰减曲线。`
+      : date,
+    conflicts: [],
+  };
+  loadNote = [gearResult.error, enemyResult.error].filter((line) => line !== "").join("。");
+  planetCache = readPlanetCache();
+  fillPlanets();
+  restoreSelection();
+  renderCard();
+}
+
+async function loadGear(): Promise<{ gear: GearPiece[]; aliases: Record<string, string[]>; version: string; error: string }> {
   try {
-    const [gear, enemyRows, aliasRows, tables, metaFile] = await Promise.all([
-      readJson<GearPiece[]>("/data/equipment.json"),
-      readJson<Enemy[]>("/data/enemies.json"),
-      readJson<Record<string, string[]>>("/data/aliases.json"),
-      readJson<EnvironmentTables>("/data/environment.json"),
-      readJson<MetaFile>("/data/meta.json"),
-    ]);
-    equipment = gear;
-    enemies = enemyRows;
-    aliases = aliasRows;
-    environment = tables;
-    meta = metaFile;
-    planetCache = readPlanetCache();
-    fillPlanets();
-    restoreSelection();
-    renderCard();
+    const result = await fetchWikiGear();
+    return { ...result, error: "" };
   } catch {
-    card.textContent = "数据没有读到";
+    return { gear: [], aliases: {}, version: "", error: "武器没有读到" };
   }
 }
 
 function addGearRow(parent: HTMLElement, label: string, slot: Slot, id: string): GearRow {
-  const search = document.createElement("input");
-  search.type = "text";
-  search.id = `search-${id}`;
-  search.autocomplete = "off";
-  search.placeholder = "搜索名称、型号、英文名或别名";
-  const select = document.createElement("select");
-  select.id = `gear-${id}`;
-  const row: GearRow = { id, slot, search, select };
-  search.addEventListener("input", () => fillGearSelect(row));
-  select.addEventListener("change", () => {
-    if (quiet) return;
+  const picker = createPicker(parent, label, id, "输入名称、型号、英文名或别名", () => gearOptions(slot), () => {
     saveSelection();
     renderCard();
   });
-  parent.append(field(label, search, select));
-  return row;
+  return { id, slot, picker };
 }
 
-function field(label: string, ...controls: HTMLElement[]): HTMLLabelElement {
-  const wrap = document.createElement("label");
+function field(label: string, ...controls: HTMLElement[]): HTMLDivElement {
+  const wrap = document.createElement("div");
   wrap.className = "field";
   const name = document.createElement("span");
   name.className = "name";
   name.textContent = label;
+  const labelled = controls.find((control): control is HTMLInputElement | HTMLSelectElement => (
+    control instanceof HTMLInputElement || control instanceof HTMLSelectElement
+  ));
+  if (labelled) {
+    name.id = `${labelled.id}-label`;
+    labelled.setAttribute("aria-labelledby", name.id);
+  }
   wrap.append(name, ...controls);
   return wrap;
 }
@@ -249,61 +265,204 @@ function aliasList(id: string): string[] {
   return value.filter((item): item is string => typeof item === "string");
 }
 
-function matches(value: string, query: string): boolean {
-  return value.toLowerCase().includes(query);
-}
-
-function gearMatches(piece: GearPiece, query: string): boolean {
-  const needle = query.trim().toLowerCase();
-  if (!needle) return true;
-  const fields = [piece.name, piece.model ?? "", piece.nameEn ?? "", ...aliasList(piece.id)];
-  return fields.some((fieldText) => matches(fieldText, needle));
-}
-
-function enemyMatches(enemy: Enemy, query: string): boolean {
-  const needle = query.trim().toLowerCase();
-  if (!needle) return true;
-  return matches(enemy.name, needle) || matches(enemy.id, needle);
-}
-
 function gearText(piece: GearPiece): string {
-  const parts = [piece.name];
-  if (piece.model && piece.model !== piece.name) parts.push(piece.model);
-  if (piece.nameEn && piece.nameEn !== piece.name && piece.nameEn !== piece.model) parts.push(piece.nameEn);
-  return parts.join(" ");
+  if (piece.model && !piece.name.includes(piece.model)) return `${piece.name} ${piece.model}`;
+  return piece.name;
 }
 
-function fillGearSelect(row: GearRow): void {
-  const selected = row.select.value;
-  const pieces = equipment
-    .filter((piece) => piece.slot === row.slot)
-    .sort((a, b) => a.order - b.order || a.name.localeCompare(b.name, "zh"));
-  quiet = true;
-  try {
-    row.select.replaceChildren(option("", "空"));
-    for (const piece of pieces) {
-      if (piece.id !== selected && !gearMatches(piece, row.search.value)) continue;
-      row.select.append(option(piece.id, gearText(piece)));
-    }
-    row.select.value = pieces.some((piece) => piece.id === selected) ? selected : "";
-  } finally {
-    quiet = false;
+function gearHint(piece: GearPiece): string {
+  const label = gearText(piece);
+  const bits = [piece.model ?? "", piece.nameEn ?? "", ...aliasList(piece.id)];
+  return [...new Set(bits.filter((bit) => bit !== "" && bit !== piece.name && !label.includes(bit)))].join(" · ");
+}
+
+function gearOptions(slot: Slot): Choice[] {
+  return equipment
+    .filter((piece) => piece.slot === slot)
+    .sort((a, b) => a.order - b.order || a.name.localeCompare(b.name, "zh"))
+    .map((piece) => ({
+      value: piece.id,
+      label: gearText(piece),
+      hint: gearHint(piece),
+      search: [piece.name, piece.model ?? "", piece.nameEn ?? "", ...aliasList(piece.id)].join(" ").toLowerCase(),
+    }));
+}
+
+function enemyOptions(): Choice[] {
+  return enemies
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name, "zh"))
+    .map((enemy) => {
+      const english = enemy.nameEn && enemy.nameEn !== enemy.name ? enemy.nameEn : "";
+      const faction = enemy.factionZh || enemy.faction;
+      return {
+        value: enemy.id,
+        label: enemy.name,
+        hint: [english, faction].filter((part) => part !== "").join(" · "),
+        search: [enemy.name, enemy.nameEn ?? "", enemy.id, enemy.faction, enemy.factionZh ?? "", ...(enemy.aliases ?? [])].join(" ").toLowerCase(),
+      };
+    });
+}
+
+function createPicker(
+  parent: HTMLElement,
+  label: string,
+  id: string,
+  placeholder: string,
+  options: () => Choice[],
+  onChange: () => void,
+): Picker {
+  const input = document.createElement("input");
+  input.type = "text";
+  input.id = `search-${id}`;
+  input.autocomplete = "off";
+  input.placeholder = placeholder;
+  input.role = "combobox";
+  input.setAttribute("aria-autocomplete", "list");
+  input.setAttribute("aria-expanded", "false");
+  const list = document.createElement("div");
+  list.className = "results";
+  list.id = `results-${id}`;
+  list.hidden = true;
+  list.role = "listbox";
+  input.setAttribute("aria-controls", list.id);
+  const picker: Picker = { input, list, value: "", active: -1, options, onChange };
+  input.addEventListener("focus", () => {
+    openPicker(picker);
+    input.select();
+  });
+  input.addEventListener("click", () => {
+    if (picker.list.hidden) openPicker(picker);
+  });
+  input.addEventListener("input", () => {
+    picker.active = -1;
+    openPicker(picker);
+  });
+  input.addEventListener("blur", () => closePicker(picker, true));
+  input.addEventListener("keydown", (event) => onPickerKey(picker, event));
+  parent.append(field(label, input, list));
+  pickers.push(picker);
+  return picker;
+}
+
+function choiceLabel(picker: Picker): string {
+  if (picker.value === "") return "";
+  return picker.options().find((choice) => choice.value === picker.value)?.label ?? "";
+}
+
+function visibleChoices(picker: Picker): Choice[] {
+  const typed = picker.input.value.trim().toLowerCase();
+  const current = choiceLabel(picker).toLowerCase();
+  const needle = typed === "" || typed === current ? "" : typed;
+  const matches = picker.options().filter((choice) => needle === "" || choice.search.includes(needle) || choice.label.toLowerCase().includes(needle));
+  if (picker.value !== "") matches.unshift({ value: "", label: "清空", hint: "", search: "" });
+  return matches;
+}
+
+function paintPicker(picker: Picker): void {
+  const choices = visibleChoices(picker);
+  picker.list.replaceChildren();
+  if (choices.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "empty";
+    empty.textContent = "没有匹配";
+    picker.list.append(empty);
+    return;
   }
+  choices.forEach((choice, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.role = "option";
+    button.setAttribute("aria-selected", index === picker.active ? "true" : "false");
+    const title = document.createElement("span");
+    title.textContent = choice.label;
+    button.append(title);
+    if (choice.hint) {
+      const hint = document.createElement("span");
+      hint.className = "hint";
+      hint.textContent = choice.hint;
+      button.append(hint);
+    }
+    button.addEventListener("mousedown", (event) => {
+      event.preventDefault();
+      commitPicker(picker, choice.value);
+    });
+    picker.list.append(button);
+  });
+  const typed = picker.input.value.trim().toLowerCase();
+  const current = choiceLabel(picker).toLowerCase();
+  if (typed !== "" && typed !== current && choices.every((choice) => choice.label === "清空")) {
+    const empty = document.createElement("p");
+    empty.className = "empty";
+    empty.textContent = "没有匹配";
+    picker.list.append(empty);
+  }
+  const active = picker.list.querySelector<HTMLButtonElement>('[aria-selected="true"]');
+  if (!active) return;
+  const top = active.offsetTop;
+  const bottom = top + active.offsetHeight;
+  if (top < picker.list.scrollTop) picker.list.scrollTop = top;
+  else if (bottom > picker.list.scrollTop + picker.list.clientHeight) picker.list.scrollTop = bottom - picker.list.clientHeight;
 }
 
-function fillEnemySelect(): void {
-  const selected = enemySelect.value;
-  const rows = enemies.slice().sort((a, b) => a.name.localeCompare(b.name, "zh"));
-  quiet = true;
-  try {
-    enemySelect.replaceChildren(option("", "空"));
-    for (const enemy of rows) {
-      if (enemy.id !== selected && !enemyMatches(enemy, enemySearch.value)) continue;
-      enemySelect.append(option(enemy.id, enemy.name));
-    }
-    enemySelect.value = rows.some((enemy) => enemy.id === selected) ? selected : "";
-  } finally {
-    quiet = false;
+function openPicker(picker: Picker): void {
+  for (const other of pickers) {
+    if (other !== picker) closePicker(other, true);
+  }
+  picker.list.hidden = false;
+  picker.input.setAttribute("aria-expanded", "true");
+  paintPicker(picker);
+}
+
+function closePicker(picker: Picker, restore: boolean): void {
+  picker.list.hidden = true;
+  picker.input.setAttribute("aria-expanded", "false");
+  picker.active = -1;
+  if (!restore) return;
+  if (picker.input.value.trim() === "") {
+    const had = picker.value !== "";
+    picker.value = "";
+    picker.input.value = "";
+    if (had && !quiet) picker.onChange();
+    return;
+  }
+  picker.input.value = choiceLabel(picker);
+}
+
+function commitPicker(picker: Picker, value: string): void {
+  picker.value = value;
+  picker.input.value = choiceLabel(picker);
+  closePicker(picker, false);
+  if (!quiet) picker.onChange();
+}
+
+function setPickerValue(picker: Picker, value: string): void {
+  picker.value = picker.options().some((choice) => choice.value === value) ? value : "";
+  picker.input.value = choiceLabel(picker);
+}
+
+function onPickerKey(picker: Picker, event: KeyboardEvent): void {
+  if (event.isComposing) return;
+  if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+    event.preventDefault();
+    if (picker.list.hidden) openPicker(picker);
+    const last = visibleChoices(picker).length - 1;
+    if (last < 0) return;
+    picker.active = event.key === "ArrowDown" ? Math.min(picker.active + 1, last) : Math.max(picker.active - 1, 0);
+    paintPicker(picker);
+    return;
+  }
+  if (event.key === "Enter") {
+    event.preventDefault();
+    const choices = visibleChoices(picker);
+    const concrete = choices.filter((choice) => choice.label !== "清空");
+    const choice = picker.active >= 0 ? choices[picker.active] : concrete.length === 1 ? concrete[0] : undefined;
+    if (choice) commitPicker(picker, choice.value);
+    return;
+  }
+  if (event.key === "Escape") {
+    picker.input.value = choiceLabel(picker);
+    closePicker(picker, false);
   }
 }
 
@@ -380,29 +539,32 @@ function restoreSelection(): void {
     grenade: gearRows[2],
     support: gearRows[3],
   };
-  for (const row of [...gearRows, ...stratagemRows]) fillGearSelect(row);
-  fillEnemySelect();
-  for (const key of ["primary", "secondary", "grenade", "support"] as const) {
-    const piece = gearById(saved[key]);
-    if (piece && piece.slot === slots[key].slot) slots[key].select.value = piece.id;
+  quiet = true;
+  try {
+    for (const key of ["primary", "secondary", "grenade", "support"] as const) {
+      const piece = gearById(saved[key]);
+      setPickerValue(slots[key].picker, piece && piece.slot === slots[key].slot ? piece.id : "");
+    }
+    stratagemRows.forEach((row, index) => {
+      const piece = gearById(saved.stratagems[index] ?? "");
+      setPickerValue(row.picker, piece && piece.slot === "stratagem" ? piece.id : "");
+    });
+    setPickerValue(enemyPicker, enemies.some((enemy) => enemy.id === saved.enemyId) ? saved.enemyId : "");
+  } finally {
+    quiet = false;
   }
-  stratagemRows.forEach((row, index) => {
-    const piece = gearById(saved.stratagems[index] ?? "");
-    if (piece && piece.slot === "stratagem") row.select.value = piece.id;
-  });
-  if (enemies.some((enemy) => enemy.id === saved.enemyId)) enemySelect.value = saved.enemyId;
   for (const box of weatherBoxes) box.checked = saved.weather.includes(box.value as Weather);
   gloomSelect.value = saved.gloom;
 }
 
 function saveSelection(): void {
   const selection: Selection = {
-    primary: gearRows[0].select.value,
-    secondary: gearRows[1].select.value,
-    grenade: gearRows[2].select.value,
-    support: gearRows[3].select.value,
-    stratagems: stratagemRows.map((row) => row.select.value),
-    enemyId: enemySelect.value,
+    primary: gearRows[0].picker.value,
+    secondary: gearRows[1].picker.value,
+    grenade: gearRows[2].picker.value,
+    support: gearRows[3].picker.value,
+    stratagems: stratagemRows.map((row) => row.picker.value),
+    enemyId: enemyPicker.value,
     weather: weatherBoxes.filter((box) => box.checked).map((box) => box.value as Weather),
     gloom: knownGloom(gloomSelect.value) ? gloomSelect.value : "none",
   };
@@ -525,7 +687,7 @@ async function refreshPlanets(): Promise<void> {
 }
 
 function currentGear(): GearPiece[] {
-  const ids = [...gearRows, ...stratagemRows].map((row) => row.select.value).filter((id) => id !== "");
+  const ids = [...gearRows, ...stratagemRows].map((row) => row.picker.value).filter((id) => id !== "");
   return ids.flatMap((id) => {
     const piece = gearById(id);
     return piece ? [piece] : [];
@@ -608,12 +770,13 @@ function formatGear(item: KillCard["gear"][number]): string {
 }
 
 function renderCard(): void {
-  const enemy = enemies.find((item) => item.id === enemySelect.value);
+  const enemy = enemies.find((item) => item.id === enemyPicker.value);
   card.replaceChildren();
   if (!enemy) {
-    card.textContent = "先选一个敌人";
+    card.textContent = loadNote || "先选一个敌人";
     return;
   }
+  if (loadNote) addParagraph(card, loadNote);
   const result = assess(enemy, currentGear(), currentSituation(), {
     importedAt: meta.importedAt,
     conflicts: meta.conflicts,
@@ -626,6 +789,9 @@ function renderCard(): void {
   }
   if (result.weakPoints.length > 0) addLines(card, "弱点", result.weakPoints.map(formatWeak));
   else if (enemy.parts.length === 0) addText(card, "弱点", "部位暂缺");
+  if (result.locations.length > 0) {
+    addLines(card, "部位", result.locations.map((item) => `${item.name}：${item.detail}`));
+  }
   if (result.gear.length > 0) {
     addLines(card, "你的装备", result.gear.map(formatGear));
     if (result.blockedCount > 0) addParagraph(card, `打不穿：${result.blockedCount}`);

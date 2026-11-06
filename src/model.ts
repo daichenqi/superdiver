@@ -29,6 +29,12 @@ export interface AttackProfile {
   ballistics?: { sizeMm: number; massG: number; drag: number };
   explosion?: { innerRadius: number; outerRadius: number; falloff: "slow" | "quick" };
   beam?: { falloffStart: number; range: number; maxFalloff: number };
+  mode?: string;
+  fragment?: boolean;
+  shrapnelCount?: number;
+  shrapnelName?: string;
+  sourceName?: string;
+  parentName?: string;
 }
 
 export interface GearPiece {
@@ -42,6 +48,8 @@ export interface GearPiece {
   eagle: boolean;
   attacks: AttackProfile[];
   missingCombatData?: boolean;
+  harmless?: boolean;
+  catalogFallback?: boolean;
 }
 
 export interface Part {
@@ -53,12 +61,19 @@ export interface Part {
   fatal: boolean;
   breakable: boolean;
   behindId?: string;
+  percentToMain?: number;
+  bleed?: number;
+  bleedPerSecond?: number;
+  explosionResist?: number;
 }
 
 export interface Enemy {
   id: string;
   name: string;
+  nameEn?: string;
+  aliases?: string[];
   faction: string;
+  factionZh?: string;
   health?: number;
   wikiUrl?: string;
   multipliers: { fire?: number; arc?: number; acid?: number; gas?: number };
@@ -86,4 +101,6 @@ export interface ShotResult {
   armorUsed: number;
   falloff: number;
   missingBallistics: boolean;
+  explosionImmune?: boolean;
+  explosionResist?: number;
 }

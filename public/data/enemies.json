@@ -1,24 +1,1133 @@
 [
   {
+    "id": "alpha-commander",
+    "name": "阿尔法指挥官",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Alpha_Commander",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 1000,
+    "nameEn": "Alpha Commander",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "alpha-warrior",
+    "name": "阿尔法武斗虫",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Alpha_Warrior",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 325,
+    "nameEn": "Alpha Warrior",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "annihilator-tank",
+    "name": "湮灭坦克",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Annihilator_Tank",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "nameEn": "Annihilator Tank",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "assault-raider",
+    "name": "特攻奇袭者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Assault_Raider",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 125,
+    "nameEn": "Assault Raider",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "barrager-tank",
+    "name": "铁幕坦克",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Barrager_Tank",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "nameEn": "Barrager Tank",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "berserker",
+    "name": "狂暴者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Berserker",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 750,
+    "nameEn": "Berserker",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "bile-spewer",
+    "name": "腐蚀喷涌虫",
+    "faction": "Caustic Strain",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Bile_Spewer",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 750,
+    "nameEn": "Bile Spewer",
+    "factionZh": "腐蚀变种"
+  },
+  {
+    "id": "bile-spitter",
+    "name": "腐蚀吐沫虫",
+    "faction": "Caustic Strain",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Bile_Spitter",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 60,
+    "nameEn": "Bile Spitter",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "bile-titan",
+    "name": "吐酸泰坦",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Bile_Titan",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 6500,
+    "nameEn": "Bile Titan",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "bile-warrior",
+    "name": "腐蚀武斗虫",
+    "faction": "Caustic Strain",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Bile_Warrior",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 325,
+    "nameEn": "Bile Warrior",
+    "factionZh": "腐蚀变种"
+  },
+  {
+    "id": "brawler",
+    "name": "乱斗者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Brawler",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 125,
+    "nameEn": "Brawler",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "brood-commander",
+    "name": "虫族指挥官",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Brood_Commander",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 800,
+    "nameEn": "Brood Commander",
+    "factionZh": "终结族"
+  },
+  {
     "id": "charger",
-    "name": "冲锋虫",
+    "name": "强袭虫",
     "faction": "Terminids",
     "health": 1000,
     "wikiUrl": "https://helldivers.wiki.gg/wiki/Charger",
-    "multipliers": { "fire": 1.5, "gas": 0, "arc": 0.5 },
+    "multipliers": {
+      "fire": 1.5,
+      "gas": 0,
+      "arc": 0.5
+    },
     "parts": [
-      { "id": "head", "name": "头", "armor": 4, "health": 600, "durability": 0.2, "fatal": true, "breakable": false },
-      { "id": "leg", "name": "腿甲", "armor": 4, "health": 400, "durability": 0, "fatal": false, "breakable": true, "behindId": "flesh" },
-      { "id": "flesh", "name": "腿肉", "armor": 1, "health": 5000, "durability": 0, "fatal": true, "breakable": false },
-      { "id": "butt", "name": "臀", "armor": 0, "health": 800, "durability": 0.8, "fatal": false, "breakable": false, "behindId": "flesh" }
-    ]
+      {
+        "id": "head",
+        "name": "头",
+        "armor": 4,
+        "health": 600,
+        "durability": 0.2,
+        "fatal": true,
+        "breakable": false
+      },
+      {
+        "id": "leg",
+        "name": "腿甲",
+        "armor": 4,
+        "health": 400,
+        "durability": 0,
+        "fatal": false,
+        "breakable": true,
+        "behindId": "flesh"
+      },
+      {
+        "id": "flesh",
+        "name": "腿肉",
+        "armor": 1,
+        "health": 5000,
+        "durability": 0,
+        "fatal": true,
+        "breakable": false
+      },
+      {
+        "id": "butt",
+        "name": "臀",
+        "armor": 0,
+        "health": 800,
+        "durability": 0.8,
+        "fatal": false,
+        "breakable": false,
+        "behindId": "flesh"
+      }
+    ],
+    "nameEn": "Charger",
+    "aliases": [
+      "冲锋虫"
+    ],
+    "factionZh": "终结族"
+  },
+  {
+    "id": "charger-behemoth",
+    "name": "巨兽级强袭虫",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Charger_Behemoth",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 3000,
+    "nameEn": "Charger Behemoth",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "civilian",
+    "name": "平民",
+    "faction": "Super Earth Federation",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Civilian",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 70,
+    "nameEn": "Civilian",
+    "factionZh": "超级地球联邦"
+  },
+  {
+    "id": "commissar",
+    "name": "机械统帅",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Commissar",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 125,
+    "nameEn": "Commissar",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "conflagration-devastator",
+    "name": "烈火蹂躏者",
+    "faction": "Incineration Corps",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Conflagration_Devastator",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 750,
+    "nameEn": "Conflagration Devastator",
+    "factionZh": "炽灼部队"
+  },
+  {
+    "id": "crescent-overseer",
+    "name": "新月监视者",
+    "faction": "Illuminate",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Crescent_Overseer",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 600,
+    "nameEn": "Crescent Overseer",
+    "factionZh": "光能者"
+  },
+  {
+    "id": "crusher",
+    "name": "粉碎者",
+    "faction": "Vote Snatchers",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Crusher",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 6000,
+    "nameEn": "Crusher",
+    "factionZh": "窃票者"
+  },
+  {
+    "id": "devastator",
+    "name": "蹂躏者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Devastator",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 750,
+    "nameEn": "Devastator",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "dragonroach",
+    "name": "蟑龙",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Dragonroach",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 6500,
+    "nameEn": "Dragonroach",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "dropship",
+    "name": "运输舰",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Dropship",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 3500,
+    "nameEn": "Dropship",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "elevated-overseer",
+    "name": "崇高监视者",
+    "faction": "Illuminate",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Elevated_Overseer",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 450,
+    "nameEn": "Elevated Overseer",
+    "factionZh": "光能者"
+  },
+  {
+    "id": "factory-strider",
+    "name": "移动工厂",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Factory_Strider",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 10000,
+    "nameEn": "Factory Strider",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "fleshmob",
+    "name": "肉瘤体",
+    "faction": "Illuminate",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Fleshmob",
+    "multipliers": {
+      "fire": 0,
+      "arc": 1
+    },
+    "parts": [],
+    "health": 5000,
+    "nameEn": "Fleshmob",
+    "factionZh": "光能者"
+  },
+  {
+    "id": "gatekeeper",
+    "name": "御门者",
+    "faction": "Appropriators",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Gatekeeper",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 2500,
+    "nameEn": "Gatekeeper",
+    "factionZh": "占领者"
+  },
+  {
+    "id": "ground-all-terrain-extraction-rig-(gater)",
+    "name": "地面全地形采集钻机（GATER）",
+    "faction": "Super Earth",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Ground_All-Terrain_Extraction_Rig_(GATER)",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 12000,
+    "nameEn": "Ground All-Terrain Extraction Rig (GATER)",
+    "factionZh": "超级地球"
+  },
+  {
+    "id": "gunship",
+    "name": "炮舰",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Gunship",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 950,
+    "nameEn": "Gunship",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "harvester",
+    "name": "猎杀器",
+    "faction": "Illuminate",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Harvester",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 3000,
+    "nameEn": "Harvester",
+    "factionZh": "光能者"
+  },
+  {
+    "id": "heavy-devastator",
+    "name": "重型蹂躏者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Heavy_Devastator",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 750,
+    "nameEn": "Heavy Devastator",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "helldiver",
+    "name": "绝地潜兵",
+    "faction": "Super Earth Federation",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Helldiver",
+    "multipliers": {
+      "fire": 0,
+      "gas": 1
+    },
+    "parts": [],
+    "health": 125,
+    "nameEn": "Helldiver",
+    "factionZh": "超级地球联邦"
+  },
+  {
+    "id": "hive-guard",
+    "name": "虫窝护卫",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Hive_Guard",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 500,
+    "nameEn": "Hive Guard",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "hive-lord",
+    "name": "霸王虫",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Hive_Lord",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 150000,
+    "nameEn": "Hive Lord",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "hulk-bruiser",
+    "name": "巨型碾压者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Hulk_Bruiser",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 1800,
+    "nameEn": "Hulk Bruiser",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "hulk-firebomber",
+    "name": "巨型烈焰轰炸者",
+    "faction": "Incineration Corps",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Hulk_Firebomber",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 1800,
+    "nameEn": "Hulk Firebomber",
+    "factionZh": "炽灼部队"
+  },
+  {
+    "id": "hulk-obliterator",
+    "name": "巨型抹煞者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Hulk_Obliterator",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 1800,
+    "nameEn": "Hulk Obliterator",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "hulk-scorcher",
+    "name": "巨型炙炎者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Hulk_Scorcher",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 1800,
+    "nameEn": "Hulk Scorcher",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "hunter",
+    "name": "追猎虫",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Hunter",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "nameEn": "Hunter",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "illuminate-overship",
+    "name": "光能者统御舰",
+    "faction": "Illuminate",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Illuminate_Overship",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 18001,
+    "nameEn": "Illuminate Overship",
+    "factionZh": "光能者"
+  },
+  {
+    "id": "impaler",
+    "name": "穿刺虫",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Impaler",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 4000,
+    "nameEn": "Impaler",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "incendiary-mg-devastator",
+    "name": "燃烧机枪蹂躏者",
+    "faction": "Incineration Corps",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Incendiary_MG_Devastator",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 750,
+    "nameEn": "Incendiary MG Devastator",
+    "factionZh": "炽灼部队"
+  },
+  {
+    "id": "incendiary-rocket-raider",
+    "name": "燃烧火箭奇袭者",
+    "faction": "Incineration Corps",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Incendiary_Rocket_Raider",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 125,
+    "nameEn": "Incendiary Rocket Raider",
+    "factionZh": "炽灼部队"
+  },
+  {
+    "id": "jet-brigade-commissar",
+    "name": "喷气旅机械统帅",
+    "faction": "Jet Brigade",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Jet_Brigade_Commissar",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 125,
+    "nameEn": "Jet Brigade Commissar",
+    "factionZh": "喷气旅"
+  },
+  {
+    "id": "jet-brigade-devastator",
+    "name": "喷气旅蹂躏者",
+    "faction": "Jet Brigade",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Jet_Brigade_Devastator",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 750,
+    "nameEn": "Jet Brigade Devastator",
+    "factionZh": "喷气旅"
+  },
+  {
+    "id": "jet-brigade-hulk-bruiser",
+    "name": "喷气旅巨型碾压者",
+    "faction": "Jet Brigade",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Jet_Brigade_Hulk_Bruiser",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 1800,
+    "nameEn": "Jet Brigade Hulk Bruiser",
+    "factionZh": "喷气旅"
+  },
+  {
+    "id": "jet-brigade-hulk-scorcher",
+    "name": "喷气旅巨型炙炎者",
+    "faction": "Jet Brigade",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Jet_Brigade_Hulk_Scorcher",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 1800,
+    "nameEn": "Jet Brigade Hulk Scorcher",
+    "factionZh": "喷气旅"
+  },
+  {
+    "id": "jet-brigade-mg-raider",
+    "name": "喷气旅机枪奇袭者",
+    "faction": "Jet Brigade",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Jet_Brigade_MG_Raider",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 125,
+    "nameEn": "Jet Brigade MG Raider",
+    "factionZh": "喷气旅"
+  },
+  {
+    "id": "jet-brigade-trooper",
+    "name": "喷气旅装甲兵",
+    "faction": "Jet Brigade",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Jet_Brigade_Trooper",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 125,
+    "nameEn": "Jet Brigade Trooper",
+    "factionZh": "喷气旅"
+  },
+  {
+    "id": "leviathan",
+    "name": "利维坦",
+    "faction": "Illuminate",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Leviathan",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 15000,
+    "nameEn": "Leviathan",
+    "factionZh": "光能者"
+  },
+  {
+    "id": "marauder",
+    "name": "劫掠者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Marauder",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 125,
+    "nameEn": "Marauder",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "mg-raider",
+    "name": "机枪奇袭者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/MG_Raider",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 125,
+    "nameEn": "MG Raider",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "nursing-spewer",
+    "name": "抚育喷涌虫",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Nursing_Spewer",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 750,
+    "nameEn": "Nursing Spewer",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "obtruder",
+    "name": "突入者",
+    "faction": "Appropriators",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Obtruder",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 400,
+    "nameEn": "Obtruder",
+    "factionZh": "占领者"
+  },
+  {
+    "id": "overseer",
+    "name": "监视者",
+    "faction": "Illuminate",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Overseer",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 600,
+    "nameEn": "Overseer",
+    "factionZh": "光能者"
+  },
+  {
+    "id": "pouncer",
+    "name": "猛扑虫",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Pouncer",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 60,
+    "nameEn": "Pouncer",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "predator-hunter",
+    "name": "掠食追猎虫",
+    "faction": "Predator Strain",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Predator_Hunter",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 175,
+    "nameEn": "Predator Hunter",
+    "factionZh": "掠食变种"
+  },
+  {
+    "id": "predator-stalker",
+    "name": "掠食追踪虫",
+    "faction": "Predator Strain",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Predator_Stalker",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 650,
+    "nameEn": "Predator Stalker",
+    "factionZh": "掠食变种"
+  },
+  {
+    "id": "pyro-trooper",
+    "name": "炙焰装甲兵",
+    "faction": "Incineration Corps",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Pyro_Trooper",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "nameEn": "Pyro Trooper",
+    "factionZh": "炽灼部队"
+  },
+  {
+    "id": "reinforced-scout-strider",
+    "name": "强化侦察纵步者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Reinforced_Scout_Strider",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 500,
+    "nameEn": "Reinforced Scout Strider",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "rocket-devastator",
+    "name": "火箭蹂躏者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Rocket_Devastator",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 750,
+    "nameEn": "Rocket Devastator",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "rocket-raider",
+    "name": "火箭奇袭者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Rocket_Raider",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 125,
+    "nameEn": "Rocket Raider",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "rupture-charger",
+    "name": "爆裂强袭虫",
+    "faction": "Rupture Strain",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Rupture_Charger",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 2400,
+    "nameEn": "Rupture Charger",
+    "factionZh": "爆裂变种"
+  },
+  {
+    "id": "rupture-spewer",
+    "name": "爆裂喷涌虫",
+    "faction": "Rupture Strain",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Rupture_Spewer",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 750,
+    "nameEn": "Rupture Spewer",
+    "factionZh": "爆裂变种"
+  },
+  {
+    "id": "rupture-warrior",
+    "name": "爆裂武斗虫",
+    "faction": "Rupture Strain",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Rupture_Warrior",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 250,
+    "nameEn": "Rupture Warrior",
+    "factionZh": "爆裂变种"
   },
   {
     "id": "scavenger",
-    "name": "拾荒者",
+    "name": "食腐虫",
     "faction": "Terminids",
     "health": 80,
     "multipliers": {},
-    "parts": []
+    "parts": [],
+    "nameEn": "Scavenger",
+    "aliases": [
+      "拾荒者"
+    ],
+    "factionZh": "终结族",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Scavenger"
+  },
+  {
+    "id": "scout-strider",
+    "name": "侦察纵步者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Scout_Strider",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 500,
+    "nameEn": "Scout Strider",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "seaf-soldier",
+    "name": "超级地球武装部队士兵",
+    "faction": "Super Earth Federation",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/SEAF_Soldier",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 150,
+    "nameEn": "SEAF Soldier",
+    "factionZh": "超级地球联邦"
+  },
+  {
+    "id": "shredder-tank",
+    "name": "碎裂坦克",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Shredder_Tank",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "nameEn": "Shredder Tank",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "shrieker",
+    "name": "尖啸虫",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Shrieker",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "nameEn": "Shrieker",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "spore-burst-bile-titan",
+    "name": "孢裂吐酸泰坦",
+    "faction": "Spore Burst Strain",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Spore_Burst_Bile_Titan",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 7000,
+    "nameEn": "Spore Burst Bile Titan",
+    "factionZh": "孢裂变种"
+  },
+  {
+    "id": "spore-burst-hunter",
+    "name": "孢裂追猎虫",
+    "faction": "Spore Burst Strain",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Spore_Burst_Hunter",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 160,
+    "nameEn": "Spore Burst Hunter",
+    "factionZh": "孢裂变种"
+  },
+  {
+    "id": "spore-burst-scavenger",
+    "name": "孢裂食腐虫",
+    "faction": "Spore Burst Strain",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Spore_Burst_Scavenger",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 60,
+    "nameEn": "Spore Burst Scavenger",
+    "factionZh": "孢裂变种"
+  },
+  {
+    "id": "spore-burst-warrior",
+    "name": "孢裂武斗虫",
+    "faction": "Spore Burst Strain",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Spore_Burst_Warrior",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 325,
+    "nameEn": "Spore Burst Warrior",
+    "factionZh": "孢裂变种"
+  },
+  {
+    "id": "spore-charger",
+    "name": "腐蚀强袭虫",
+    "faction": "Caustic Strain",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Spore_Charger",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 2400,
+    "nameEn": "Spore Charger",
+    "factionZh": "腐蚀变种"
+  },
+  {
+    "id": "stalker",
+    "name": "追踪虫",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Stalker",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 800,
+    "nameEn": "Stalker",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "stingray",
+    "name": "刺魟",
+    "faction": "Illuminate",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Stingray",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 800,
+    "nameEn": "Stingray",
+    "factionZh": "光能者"
+  },
+  {
+    "id": "trooper",
+    "name": "装甲兵",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Trooper",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 125,
+    "nameEn": "Trooper",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "veracitor",
+    "name": "证真者",
+    "faction": "Appropriators",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Veracitor",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 3000,
+    "nameEn": "Veracitor",
+    "factionZh": "占领者"
+  },
+  {
+    "id": "voteless",
+    "name": "无票者",
+    "faction": "Illuminate",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Voteless",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "nameEn": "Voteless",
+    "factionZh": "光能者"
+  },
+  {
+    "id": "war-strider",
+    "name": "战争纵步者",
+    "faction": "Automatons",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/War_Strider",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 3500,
+    "nameEn": "War Strider",
+    "factionZh": "机器人"
+  },
+  {
+    "id": "warp-ship",
+    "name": "穿梭舰",
+    "faction": "Illuminate",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Warp_Ship",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 3500,
+    "nameEn": "Warp Ship",
+    "factionZh": "光能者"
+  },
+  {
+    "id": "warrior",
+    "name": "武斗虫",
+    "faction": "Terminids",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Warrior",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "nameEn": "Warrior",
+    "factionZh": "终结族"
+  },
+  {
+    "id": "watcher",
+    "name": "守望者",
+    "faction": "Illuminate",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Watcher",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 600,
+    "nameEn": "Watcher",
+    "factionZh": "光能者"
+  },
+  {
+    "id": "wretch",
+    "name": "悲怜体",
+    "faction": "Vote Snatchers",
+    "wikiUrl": "https://helldivers.wiki.gg/wiki/Wretch",
+    "multipliers": {
+      "fire": 0
+    },
+    "parts": [],
+    "health": 450,
+    "nameEn": "Wretch",
+    "factionZh": "窃票者"
   }
 ]

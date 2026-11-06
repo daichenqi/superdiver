@@ -96,4 +96,19 @@ describe("shotDamage", () => {
     expect(result.armorUsed).toBe(1);
     expect(result.damage).toBe(100);
   });
+
+  it("scales only explosion damage by the part's resistance", () => {
+    const ctx = { angle: "front" as const, distanceM: 0, zone: "inner" as const, acid: false };
+    const blast = gun({ kind: "explosion", aimed: false, ap: { front: 4 }, standardDamage: 100, durableDamage: 100 });
+    const immune = shotDamage(blast, { ...part(2, 0), explosionResist: 1 }, ctx);
+    expect(immune.damage).toBe(0);
+    expect(immune.penetrates).toBe(false);
+    expect(immune.explosionImmune).toBe(true);
+    const resisted = shotDamage(blast, { ...part(2, 0), explosionResist: 0.25 }, ctx);
+    expect(resisted.damage).toBe(75);
+    expect(resisted.penetrates).toBe(true);
+    const shell = shotDamage(gun({ ap: { front: 4 }, standardDamage: 100, durableDamage: 100 }), { ...part(2, 0), explosionResist: 1 }, ctx);
+    expect(shell.damage).toBe(100);
+    expect(shell.explosionImmune).toBeUndefined();
+  });
 });

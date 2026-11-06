@@ -85,16 +85,23 @@ export function shotDamage(attack: AttackProfile, part: Part, ctx: ShotContext):
 
   const factor = apUsed > armorUsed ? 1 : apUsed === armorUsed ? 0.65 : 0;
   const standard = attack.standardDamage * falloff * factor;
-  const mixed =
+  let mixed =
     part.durability === undefined || attack.durableDamage === undefined
       ? standard
       : standard * (1 - part.durability) + attack.durableDamage * falloff * factor * part.durability;
+  const resist = attack.kind === "explosion" ? part.explosionResist : undefined;
+  const explosionImmune = resist !== undefined && resist >= 1;
+  if (explosionImmune) mixed = 0;
+  else if (resist !== undefined && resist > 0 && factor > 0) mixed *= 1 - resist;
+  const damage = Math.floor(mixed);
   return {
-    damage: Math.floor(mixed),
-    penetrates: factor > 0,
+    damage,
+    penetrates: factor > 0 && damage > 0,
     apUsed,
     armorUsed,
     falloff,
     missingBallistics,
+    ...(explosionImmune ? { explosionImmune: true } : {}),
+    ...(resist !== undefined && resist > 0 && resist < 1 && damage > 0 ? { explosionResist: resist } : {}),
   };
 }
